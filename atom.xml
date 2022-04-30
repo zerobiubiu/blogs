@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zerobiubiu.github.io/blogs</id>
     <title>Zerobiubiu</title>
-    <updated>2022-04-30T05:54:44.636Z</updated>
+    <updated>2022-04-30T15:43:32.957Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zerobiubiu.github.io/blogs"/>
     <link rel="self" href="https://zerobiubiu.github.io/blogs/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://zerobiubiu.github.io/blogs/images/avatar.png</logo>
     <icon>https://zerobiubiu.github.io/blogs/favicon.ico</icon>
     <rights>All rights reserved 2022, Zerobiubiu</rights>
+    <entry>
+        <title type="html"><![CDATA[Typora配合PicGo上传图床]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/typora-pei-he-picgo-shang-chuan-tu-chuang/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/typora-pei-he-picgo-shang-chuan-tu-chuang/">
+        </link>
+        <updated>2022-04-30T06:09:22.000Z</updated>
+        <content type="html"><![CDATA[<p>的</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[使用PicGo+GitHub搭建图床]]></title>
         <id>https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/</id>
@@ -54,11 +63,29 @@
 设定分支：一般默认是<code>master</code>，不过GitHub修改了，他现在的默认一般是<code>main</code>，这里我们填<code>main</code><br>
 设定Token：刚刚我们创建的<code>Token</code>粘贴在这里就可以了<br>
 指定存储路径：这个就随意了，一般这个仓库都是存图床，可以不填<br>
-设定自定义域名：可以不设，直连GitHub，不过为了加速这里采用<a href="cdn.jsdelivr.net">JSDELIVR</a>来加速。填<code>https://cdn.jsdelivr.net/gh/用户名/仓库/分支</code></p>
+设定自定义域名：可以不设，直连GitHub，不过为了加速这里采用<a href="cdn.jsdelivr.net">JSDELIVR</a>来加速。填<code>https://cdn.jsdelivr.net/gh/用户名/仓库/</code></p>
 <p>设置好点确定和设为默认图床。</p>
 <p>🆗 点回上传区，随便将一个图片拖进去测试，上传成功会自动复制返回链接，可以在上传区调整返回链接的格式。</p>
 <h2 id="结束">🔚 结束</h2>
 <p>完成上述操作后，就可以正常使用了，软件的其他操作去PicGo设置去调整就好，推荐打开时间戳重命名，避免文件名重复照成的错误，打开开机启动省去打开的步骤，开机即用。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gridea使用问题]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/gridea-shi-yong-wen-ti/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/gridea-shi-yong-wen-ti/">
+        </link>
+        <updated>2022-04-30T00:10:00.000Z</updated>
+        <content type="html"><![CDATA[<p>1</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gridea搭建博客的过程]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/da-jian-bo-ke/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/da-jian-bo-ke/">
+        </link>
+        <updated>2022-04-30T00:08:44.000Z</updated>
+        <content type="html"><![CDATA[<p>搭建</p>
 ]]></content>
     </entry>
 </feed>
