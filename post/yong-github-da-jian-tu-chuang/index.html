@@ -1,24 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://zerobiubiu.github.io/wiki</id>
-    <title>Zerobiubiu</title>
-    <updated>2022-04-30T04:16:01.365Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://zerobiubiu.github.io/wiki"/>
-    <link rel="self" href="https://zerobiubiu.github.io/wiki/atom.xml"/>
-    <subtitle>这里是Zerobiubiu的博客</subtitle>
-    <logo>https://zerobiubiu.github.io/wiki/images/avatar.png</logo>
-    <icon>https://zerobiubiu.github.io/wiki/favicon.ico</icon>
-    <rights>All rights reserved 2022, Zerobiubiu</rights>
-    <entry>
-        <title type="html"><![CDATA[使用PicGo+GitHub搭建图床]]></title>
-        <id>https://zerobiubiu.github.io/wiki/post/yong-github-da-jian-tu-chuang/</id>
-        <link href="https://zerobiubiu.github.io/wiki/post/yong-github-da-jian-tu-chuang/">
-        </link>
-        <updated>2022-04-30T01:11:29.000Z</updated>
-        <summary type="html"><![CDATA[<p>写Markdown文档需要插入图片，转换为HTML放在Github Pages的时候不想在同一仓库放置图片，搭建个图床统一存放图片</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>写Markdown文档需要插入图片，转换为HTML放在Github Pages的时候不想在同一仓库放置图片，搭建个图床统一存放图片</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>使用PicGo+GitHub搭建图床 | Zerobiubiu</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zerobiubiu.github.io/wiki/favicon.ico?v=1651292153307">
+<link rel="stylesheet" href="https://zerobiubiu.github.io/wiki/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="写Markdown文档需要插入图片，转换为HTML放在Github Pages的时候不想在同一仓库放置图片，搭建个图床统一存放图片
+
+0️⃣ 创建Github仓库
+🆕 访问Github主页，New一个新仓库，注册Github账号就不再赘述..." />
+    <meta name="keywords" content="GitHub,PicGo,图床" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zerobiubiu.github.io/wiki">
+        <img src="https://zerobiubiu.github.io/wiki/images/avatar.png?v=1651292153307" class="site-logo">
+        <h1 class="site-title">Zerobiubiu</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zerobiubiu.github.io/wiki" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/wiki/archives" class="site-nav">
+            文档
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/wiki/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/wiki/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zerobiubiu" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      这里是Zerobiubiu的博客
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://zerobiubiu.github.io/wiki/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">使用PicGo+GitHub搭建图床</h2>
+            <div class="post-date">2022-04-30</div>
+            
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/wiki/post-images/yong-github-da-jian-tu-chuang.PNG')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>写Markdown文档需要插入图片，转换为HTML放在Github Pages的时候不想在同一仓库放置图片，搭建个图床统一存放图片</p>
 <!-- more -->
 <h2 id="0️⃣-创建github仓库">0️⃣ 创建Github仓库</h2>
 <p>🆕 访问<a href="https://github.com/">Github</a>主页，New一个新仓库，注册Github账号就不再赘述了</p>
@@ -59,6 +145,58 @@
 <p>🆗 点回上传区，随便将一个图片拖进去测试，上传成功会自动复制返回链接，可以在上传区调整返回链接的格式。</p>
 <h2 id="结束">🔚 结束</h2>
 <p>完成上述操作后，就可以正常使用了，软件的其他操作去PicGo设置去调整就好，推荐打开时间戳重命名，避免文件名重复照成的错误，打开开机启动省去打开的步骤，开机即用。</p>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zerobiubiu.github.io/wiki/tag/github/" class="tag">
+                    GitHub
+                  </a>
+                
+                  <a href="https://zerobiubiu.github.io/wiki/tag/picgo/" class="tag">
+                    PicGo
+                  </a>
+                
+                  <a href="https://zerobiubiu.github.io/wiki/tag/tu-chuang/" class="tag">
+                    图床
+                  </a>
+                
+              </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
