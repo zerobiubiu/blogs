@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://zerobiubiu.github.io/wiki</id>
+    <id>https://zerobiubiu.github.io/blogs</id>
     <title>Zerobiubiu</title>
-    <updated>2022-04-30T04:16:01.365Z</updated>
+    <updated>2022-04-30T04:37:42.264Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://zerobiubiu.github.io/wiki"/>
-    <link rel="self" href="https://zerobiubiu.github.io/wiki/atom.xml"/>
+    <link rel="alternate" href="https://zerobiubiu.github.io/blogs"/>
+    <link rel="self" href="https://zerobiubiu.github.io/blogs/atom.xml"/>
     <subtitle>这里是Zerobiubiu的博客</subtitle>
-    <logo>https://zerobiubiu.github.io/wiki/images/avatar.png</logo>
-    <icon>https://zerobiubiu.github.io/wiki/favicon.ico</icon>
+    <logo>https://zerobiubiu.github.io/blogs/images/avatar.png</logo>
+    <icon>https://zerobiubiu.github.io/blogs/favicon.ico</icon>
     <rights>All rights reserved 2022, Zerobiubiu</rights>
     <entry>
         <title type="html"><![CDATA[使用PicGo+GitHub搭建图床]]></title>
-        <id>https://zerobiubiu.github.io/wiki/post/yong-github-da-jian-tu-chuang/</id>
-        <link href="https://zerobiubiu.github.io/wiki/post/yong-github-da-jian-tu-chuang/">
+        <id>https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/">
         </link>
         <updated>2022-04-30T01:11:29.000Z</updated>
         <summary type="html"><![CDATA[<p>写Markdown文档需要插入图片，转换为HTML放在Github Pages的时候不想在同一仓库放置图片，搭建个图床统一存放图片</p>
@@ -26,22 +26,22 @@
 <blockquote>
 <p>采用GitHub的优点就是免费、稳定，但是缺点也很致命，就是存图片的仓库是公开的，没啥隐私，当然本来就是为了公开访问的图床也无所谓了，毕竟本来就是为了做公开的服务用的；再者就是访问速度了，在国区毕竟DDDD的原因，访问速度受限，不过挂上CDN完全不是问题。</p>
 </blockquote>
-<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/wiki/post-images/1651282834115.PNG" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs/post-images/1651282834115.PNG" alt="" loading="lazy"></figure>
 <p>🆙 创建好了仓库，为了访问仓库权限，再去创建一个<code>Token</code></p>
 <p>进入Github的设置</p>
-<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/wiki/post-images/1651283348612.PNG" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs/post-images/1651283348612.PNG" alt="" loading="lazy"></figure>
 <p>划到下边左侧选择<code>Developer setting</code></p>
-<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.github.io/wiki/post-images/1651283426509.PNG" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.github.io/blogs/post-images/1651283426509.PNG" alt="" loading="lazy"></figure>
 <p>进入二级页面，选择<code>Personal access tokens</code><br>
 点<code>Generate new token</code>创建一个新的<code>Token</code><br>
 接着会让你输入密码验证自己，进入创建页面</p>
-<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.github.io/wiki/post-images/1651283823527.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.github.io/blogs/post-images/1651283823527.png" alt="" loading="lazy"></figure>
 <p><code>Note</code>是你这个<code>Token</code>的备注，随自己写，一般是记录这个<code>Token</code>的作用<br>
 <code>Expiration</code>是这个<code>Token</code>的可用期限，官方是推荐设置一个时间期限，不过我一般都是选择无期限，毕竟嫌麻烦。<br>
 <code>Select scopes</code>是权限控制，本次我们只需要选择<code>repo</code>就够了，权限大家自己判断。</p>
-<figure data-type="image" tabindex="5"><img src="https://zerobiubiu.github.io/wiki/post-images/1651284114613.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://zerobiubiu.github.io/blogs/post-images/1651284114613.png" alt="" loading="lazy"></figure>
 <p>划到底点<code>Generate token</code>创建。</p>
-<figure data-type="image" tabindex="6"><img src="https://zerobiubiu.github.io/wiki/post-images/1651284304755.PNG" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://zerobiubiu.github.io/blogs/post-images/1651284304755.PNG" alt="" loading="lazy"></figure>
 <p><code>Token</code>只会在创建完毕出现，<mark>务必复制保存</mark>，不然你只能重新创建了。</p>
 <p>🆗 到这仓库就创建完毕。</p>
 <h2 id="1️⃣-配置picgo">1️⃣ 配置PicGo</h2>
@@ -49,7 +49,7 @@
 <p>🆒 先去官网下载<a href="https://molunerfinn.com/PicGo/">PicGo</a>，不过他是在Github发行的版本，下载可能会比较慢，可以考虑<a href="https://mirrors.sdu.edu.cn/github-release/Molunerfinn_PicGo/">山东大学镜像站的镜像</a>。</p>
 <p>🆙 安装很简单，就跳过了，直接开始配置</p>
 <p>进入软件第一个是上传区，先不管，直接点图床设置——Github图床设置</p>
-<figure data-type="image" tabindex="7"><img src="https://zerobiubiu.github.io/wiki/post-images/1651285782445.PNG" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://zerobiubiu.github.io/blogs/post-images/1651285782445.PNG" alt="" loading="lazy"></figure>
 <p>设置仓库名：你的Github名/你创建的仓库名<br>
 设定分支：一般默认是<code>master</code>，不过GitHub修改了，他现在的默认一般是<code>main</code>，这里我们填<code>main</code><br>
 设定Token：刚刚我们创建的<code>Token</code>粘贴在这里就可以了<br>
@@ -59,6 +59,50 @@
 <p>🆗 点回上传区，随便将一个图片拖进去测试，上传成功会自动复制返回链接，可以在上传区调整返回链接的格式。</p>
 <h2 id="结束">🔚 结束</h2>
 <p>完成上述操作后，就可以正常使用了，软件的其他操作去PicGo设置去调整就好，推荐打开时间戳重命名，避免文件名重复照成的错误，打开开机启动省去打开的步骤，开机即用。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/hello-gridea/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<p>[ ] alksjdhkas</p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<p>[ ] alksjdhkas</p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<!-- more -->
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
 ]]></content>
     </entry>
 </feed>
