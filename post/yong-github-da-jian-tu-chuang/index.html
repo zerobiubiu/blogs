@@ -8,8 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zerobiubiu.github.io/blogs/favicon.ico?v=1651294287151">
-<link rel="stylesheet" href="https://zerobiubiu.github.io/blogs/styles/main.css">
+<link rel="shortcut icon" href="https://zerobiubiu.github.io/favicon.ico?v=1651294666120">
+<link rel="stylesheet" href="https://zerobiubiu.github.io/styles/main.css">
 
 
 
@@ -30,8 +30,8 @@
       <div class="sidebar" :class="{ 'full-height': menuVisible }">
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
-      <a class="site-title-container" href="https://zerobiubiu.github.io/blogs">
-        <img src="https://zerobiubiu.github.io/blogs/images/avatar.png?v=1651294287151" class="site-logo">
+      <a class="site-title-container" href="https://zerobiubiu.github.io">
+        <img src="https://zerobiubiu.github.io/images/avatar.png?v=1651294666120" class="site-logo">
         <h1 class="site-title">Zerobiubiu</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -88,7 +88,7 @@
       这里是Zerobiubiu的博客
     </div>
     <div class="site-footer">
-       | <a class="rss" href="https://zerobiubiu.github.io/blogs/atom.xml" target="_blank">RSS</a>
+       | <a class="rss" href="https://zerobiubiu.github.io/atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
@@ -100,7 +100,7 @@
             <h2 class="post-title">使用PicGo+GitHub搭建图床</h2>
             <div class="post-date">2022-04-30</div>
             
-              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs/post-images/yong-github-da-jian-tu-chuang.PNG')">
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/post-images/yong-github-da-jian-tu-chuang.PNG')">
               </div>
             
             <div class="post-content" v-pre>
@@ -112,22 +112,22 @@
 <blockquote>
 <p>采用GitHub的优点就是免费、稳定，但是缺点也很致命，就是存图片的仓库是公开的，没啥隐私，当然本来就是为了公开访问的图床也无所谓了，毕竟本来就是为了做公开的服务用的；再者就是访问速度了，在国区毕竟DDDD的原因，访问速度受限，不过挂上CDN完全不是问题。</p>
 </blockquote>
-<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs/post-images/1651282834115.PNG" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/post-images/1651282834115.PNG" alt="" loading="lazy"></figure>
 <p>🆙 创建好了仓库，为了访问仓库权限，再去创建一个<code>Token</code></p>
 <p>进入Github的设置</p>
-<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs/post-images/1651283348612.PNG" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/post-images/1651283348612.PNG" alt="" loading="lazy"></figure>
 <p>划到下边左侧选择<code>Developer setting</code></p>
-<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.github.io/blogs/post-images/1651283426509.PNG" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.github.io/post-images/1651283426509.PNG" alt="" loading="lazy"></figure>
 <p>进入二级页面，选择<code>Personal access tokens</code><br>
 点<code>Generate new token</code>创建一个新的<code>Token</code><br>
 接着会让你输入密码验证自己，进入创建页面</p>
-<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.github.io/blogs/post-images/1651283823527.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.github.io/post-images/1651283823527.png" alt="" loading="lazy"></figure>
 <p><code>Note</code>是你这个<code>Token</code>的备注，随自己写，一般是记录这个<code>Token</code>的作用<br>
 <code>Expiration</code>是这个<code>Token</code>的可用期限，官方是推荐设置一个时间期限，不过我一般都是选择无期限，毕竟嫌麻烦。<br>
 <code>Select scopes</code>是权限控制，本次我们只需要选择<code>repo</code>就够了，权限大家自己判断。</p>
-<figure data-type="image" tabindex="5"><img src="https://zerobiubiu.github.io/blogs/post-images/1651284114613.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://zerobiubiu.github.io/post-images/1651284114613.png" alt="" loading="lazy"></figure>
 <p>划到底点<code>Generate token</code>创建。</p>
-<figure data-type="image" tabindex="6"><img src="https://zerobiubiu.github.io/blogs/post-images/1651284304755.PNG" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://zerobiubiu.github.io/post-images/1651284304755.PNG" alt="" loading="lazy"></figure>
 <p><code>Token</code>只会在创建完毕出现，<mark>务必复制保存</mark>，不然你只能重新创建了。</p>
 <p>🆗 到这仓库就创建完毕。</p>
 <h2 id="1️⃣-配置picgo">1️⃣ 配置PicGo</h2>
@@ -135,7 +135,7 @@
 <p>🆒 先去官网下载<a href="https://molunerfinn.com/PicGo/">PicGo</a>，不过他是在Github发行的版本，下载可能会比较慢，可以考虑<a href="https://mirrors.sdu.edu.cn/github-release/Molunerfinn_PicGo/">山东大学镜像站的镜像</a>。</p>
 <p>🆙 安装很简单，就跳过了，直接开始配置</p>
 <p>进入软件第一个是上传区，先不管，直接点图床设置——Github图床设置</p>
-<figure data-type="image" tabindex="7"><img src="https://zerobiubiu.github.io/blogs/post-images/1651285782445.PNG" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://zerobiubiu.github.io/post-images/1651285782445.PNG" alt="" loading="lazy"></figure>
 <p>设置仓库名：你的Github名/你创建的仓库名<br>
 设定分支：一般默认是<code>master</code>，不过GitHub修改了，他现在的默认一般是<code>main</code>，这里我们填<code>main</code><br>
 设定Token：刚刚我们创建的<code>Token</code>粘贴在这里就可以了<br>
@@ -150,29 +150,20 @@
             
               <div class="tag-container">
                 
-                  <a href="https://zerobiubiu.github.io/blogs/tag/github/" class="tag">
+                  <a href="https://zerobiubiu.github.io/tag/github/" class="tag">
                     GitHub
                   </a>
                 
-                  <a href="https://zerobiubiu.github.io/blogs/tag/picgo/" class="tag">
+                  <a href="https://zerobiubiu.github.io/tag/picgo/" class="tag">
                     PicGo
                   </a>
                 
-                  <a href="https://zerobiubiu.github.io/blogs/tag/tu-chuang/" class="tag">
+                  <a href="https://zerobiubiu.github.io/tag/tu-chuang/" class="tag">
                     图床
                   </a>
                 
               </div>
             
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://zerobiubiu.github.io/blogs/post/hello-gridea/">
-                  <h3 class="post-title">
-                    Hello Gridea
-                  </h3>
-                </a>
-              </div>
             
 
             
