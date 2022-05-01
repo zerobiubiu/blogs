@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zerobiubiu.github.io/blogs</id>
     <title>Zerobiubiu</title>
-    <updated>2022-05-01T08:09:07.259Z</updated>
+    <updated>2022-05-01T08:33:50.295Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zerobiubiu.github.io/blogs"/>
     <link rel="self" href="https://zerobiubiu.github.io/blogs/atom.xml"/>
@@ -10,6 +10,36 @@
     <logo>https://zerobiubiu.github.io/blogs/images/avatar.png</logo>
     <icon>https://zerobiubiu.github.io/blogs/favicon.ico</icon>
     <rights>All rights reserved 2022, Zerobiubiu</rights>
+    <entry>
+        <title type="html"><![CDATA[Gridea博客开启Gitalk评论]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/gridea-bo-ke-kai-qi-gitalk-ping-lun/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/gridea-bo-ke-kai-qi-gitalk-ping-lun/">
+        </link>
+        <updated>2022-05-01T08:16:11.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>一个博客不能没有评论区，没有评论区就没有灵魂</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>一个博客不能没有评论区，没有评论区就没有灵魂</p>
+</blockquote>
+<!-- more -->
+<h2 id="0️⃣-注册一个新的oauth应用程序">0️⃣ 注册一个新的OAuth应用程序</h2>
+<ol>
+<li>授权需要一个GitHub应用程序，如果你没有，<a href="https://github.com/settings/applications/new">点击这里</a>注册一个新的。</li>
+<li>如果你已经创建过应用程序，<a href="https://github.com/settings/developers">点击这里</a>查看</li>
+</ol>
+<p>找到创建的应用，获取<code>Client ID</code>和<code>Client Secret</code></p>
+<h2 id="1️⃣在gridea中开启评论">1️⃣在Gridea中开启评论</h2>
+<p>找到 远程——评论设置——Gitalk<br>
+<img src="https://zerobiubiu.github.io/blogs/post-images/1651393474626.PNG" alt="" loading="lazy"><br>
+开启显示评论<br>
+<code>Client ID</code>和<code>Client Secret</code>填刚刚创建应用的<br>
+仓库名称填博客的仓库名<br>
+Owner填GitHub的用户名</p>
+<p>每条评论都会在博客仓库的Issues创建一条新的issues</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[开源密码管理器 KeeWeb 的搭建过程]]></title>
         <id>https://zerobiubiu.github.io/blogs/post/kai-yuan-mi-ma-guan-li-qi-keeweb-de-da-jian-guo-cheng/</id>
@@ -206,7 +236,7 @@ PicGo路径不能只能识别的话手动设定一下位置就可以</p>
 </blockquote>
 <!-- more -->
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4620462"><label class="task-list-item-label" for="task-item-4620462"> 2022年4月30日12点55分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7990599"><label class="task-list-item-label" for="task-item-7990599"> 2022年4月30日12点55分</label></li>
 </ul>
 <p>在Gridea同步到Github Pages的过程中，由于Github的特殊原因经常会失败</p>
 <blockquote>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Typora配合PicGo上传图床 | Zerobiubiu</title>
+<title>Gridea博客开启Gitalk评论 | Zerobiubiu</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -34,11 +34,16 @@
 
 
     <meta name="description" content="
-Typora是一款跨平台的Markdown编辑器软件，常常用它来写笔记或者博客。当使用Typora做笔记时，常常需要上传截图，存在本地不方便传输，所以需要一个图床来存图片提供访问链接。Typora内置使用PicGo
+一个博客不能没有评论区，没有评论区就没有灵魂
 
 
-0️⃣ 配置Pic..." />
-    <meta name="keywords" content="Typora,PicGo,图床" />
+0️⃣ 注册一个新的OAuth应用程序
+
+授权需要一个GitHub应用程序，如果你没有，点击这里注册一个新的。
+如果你已经创建过应用程序，点击这里查看
+
+找到创建的应用，获取Client ..." />
+    <meta name="keywords" content="Gitalk,评论区,Gridea" />
   </head>
   <body>
     <div id="app" class="main">
@@ -119,47 +124,46 @@ Typora是一款跨平台的Markdown编辑器软件，常常用它来写笔记或
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Typora配合PicGo上传图床</h2>
-            <div class="post-date">2022-04-30</div>
+            <h2 class="post-title">Gridea博客开启Gitalk评论</h2>
+            <div class="post-date">2022-05-01</div>
             
-              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs/post-images/typora-pei-he-picgo-shang-chuan-tu-chuang.png')">
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs/post-images/gridea-bo-ke-kai-qi-gitalk-ping-lun.png')">
               </div>
             
             <div class="post-content" v-pre>
               <blockquote>
-<p>Typora是一款跨平台的Markdown编辑器软件，常常用它来写笔记或者博客。当使用Typora做笔记时，常常需要上传截图，存在本地不方便传输，所以需要一个图床来存图片提供访问链接。Typora内置使用PicGo</p>
+<p>一个博客不能没有评论区，没有评论区就没有灵魂</p>
 </blockquote>
 <!-- more -->
-<h2 id="0️⃣-配置picgo">0️⃣ 配置PicGo</h2>
-<p><a href="https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/">PicGo配合Github做图床的教程</a></p>
-<h2 id="1️⃣-配置typora">1️⃣ 配置Typora</h2>
-<p>安装<a href="https://www.typora.net/">Typora</a></p>
-<p>打开Typora——文件——偏好设置——图像</p>
-<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs/post-images/1651384263741.PNG" alt="" loading="lazy"></figure>
-<p>在上传服务设定处，上传服务选择PicGo(app)<br>
-PicGo路径不能只能识别的话手动设定一下位置就可以</p>
-<p>设置好后点击<code>验证上传选项</code></p>
-<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs/post-images/1651384447422.PNG" alt="" loading="lazy"></figure>
-<p>成功就代表配置成功了。</p>
-<h2 id="2️⃣使用">2️⃣使用</h2>
-<p>在向上看，插入图片时...  改成上传图片，即可在导入图片时自动上传并替换markdown文档中的路径。</p>
-<p>我更倾向于复制到指定目录，需要上传时对图片右键，点上传图片，他就会自动上传，不会没必要的图片也上传了。</p>
-<p>打开一个未上传图像的文档并不会直接上传，即便插入图片时上传图片也不会自动上传，还是需要手动去点上传，只有在插入新的图片到文档时才会上传图片。</p>
+<h2 id="0️⃣-注册一个新的oauth应用程序">0️⃣ 注册一个新的OAuth应用程序</h2>
+<ol>
+<li>授权需要一个GitHub应用程序，如果你没有，<a href="https://github.com/settings/applications/new">点击这里</a>注册一个新的。</li>
+<li>如果你已经创建过应用程序，<a href="https://github.com/settings/developers">点击这里</a>查看</li>
+</ol>
+<p>找到创建的应用，获取<code>Client ID</code>和<code>Client Secret</code></p>
+<h2 id="1️⃣在gridea中开启评论">1️⃣在Gridea中开启评论</h2>
+<p>找到 远程——评论设置——Gitalk<br>
+<img src="https://zerobiubiu.github.io/blogs/post-images/1651393474626.PNG" alt="" loading="lazy"><br>
+开启显示评论<br>
+<code>Client ID</code>和<code>Client Secret</code>填刚刚创建应用的<br>
+仓库名称填博客的仓库名<br>
+Owner填GitHub的用户名</p>
+<p>每条评论都会在博客仓库的Issues创建一条新的issues</p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://zerobiubiu.github.io/blogs/tag/typora/" class="tag">
-                    Typora
+                  <a href="https://zerobiubiu.github.io/blogs/tag/gitalk/" class="tag">
+                    Gitalk
                   </a>
                 
-                  <a href="https://zerobiubiu.github.io/blogs/tag/picgo/" class="tag">
-                    PicGo
+                  <a href="https://zerobiubiu.github.io/blogs/tag/ping-lun-qu/" class="tag">
+                    评论区
                   </a>
                 
-                  <a href="https://zerobiubiu.github.io/blogs/tag/tu-chuang/" class="tag">
-                    图床
+                  <a href="https://zerobiubiu.github.io/blogs/tag/gridea/" class="tag">
+                    Gridea
                   </a>
                 
               </div>
@@ -167,9 +171,9 @@ PicGo路径不能只能识别的话手动设定一下位置就可以</p>
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/">
+                <a href="https://zerobiubiu.github.io/blogs/post/kai-yuan-mi-ma-guan-li-qi-keeweb-de-da-jian-guo-cheng/">
                   <h3 class="post-title">
-                    使用PicGo+GitHub搭建图床
+                    开源密码管理器 KeeWeb 的搭建过程
                   </h3>
                 </a>
               </div>
