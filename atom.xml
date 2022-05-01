@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zerobiubiu.github.io/blogs</id>
     <title>Zerobiubiu</title>
-    <updated>2022-05-01T05:08:00.035Z</updated>
+    <updated>2022-05-01T05:41:26.968Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zerobiubiu.github.io/blogs"/>
     <link rel="self" href="https://zerobiubiu.github.io/blogs/atom.xml"/>
@@ -11,12 +11,42 @@
     <icon>https://zerobiubiu.github.io/blogs/favicon.ico</icon>
     <rights>All rights reserved 2022, Zerobiubiu</rights>
     <entry>
+        <title type="html"><![CDATA[获取Github的Token]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/huo-qu-github-de-token/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/huo-qu-github-de-token/">
+        </link>
+        <updated>2022-05-01T05:11:23.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>获取GitHub的Token的教程</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>获取GitHub的Token的教程</p>
+</blockquote>
+<!-- more -->
+<p>进入Github的设置</p>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs/post-images/1651283348612.PNG" alt="" loading="lazy"></figure>
+<p>划到下边左侧选择<code>Developer setting</code></p>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs/post-images/1651283426509.PNG" alt="" loading="lazy"></figure>
+<p>进入二级页面，选择<code>Personal access tokens</code><br>
+点<code>Generate new token</code>创建一个新的<code>Token</code><br>
+接着会让你输入密码验证自己，进入创建页面</p>
+<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.github.io/blogs/post-images/1651283823527.png" alt="" loading="lazy"></figure>
+<p><code>Note</code>是你这个<code>Token</code>的备注，随自己写，一般是记录这个<code>Token</code>的作用<br>
+<code>Expiration</code>是这个<code>Token</code>的可用期限，官方是推荐设置一个时间期限，不过我一般都是选择无期限，毕竟嫌麻烦。<br>
+<code>Select scopes</code>是权限控制，权限大家自己判断。</p>
+<p>划到底点<code>Generate token</code>创建。</p>
+<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.github.io/blogs/post-images/1651284304755.PNG" alt="" loading="lazy"></figure>
+<p><code>Token</code>只会在创建完毕出现，<mark>务必复制保存</mark>，不然你只能重新创建了。</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Typora配合PicGo上传图床]]></title>
         <id>https://zerobiubiu.github.io/blogs/post/typora-pei-he-picgo-shang-chuan-tu-chuang/</id>
         <link href="https://zerobiubiu.github.io/blogs/post/typora-pei-he-picgo-shang-chuan-tu-chuang/">
         </link>
         <updated>2022-04-30T06:09:22.000Z</updated>
-        <content type="html"><![CDATA[<p>的</p>
+        <content type="html"><![CDATA[<p>配置好</p>
 ]]></content>
     </entry>
     <entry>
@@ -85,7 +115,7 @@
 </blockquote>
 <!-- more -->
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6205249"><label class="task-list-item-label" for="task-item-6205249"> 2022年4月30日12点55分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7013590"><label class="task-list-item-label" for="task-item-7013590"> 2022年4月30日12点55分</label></li>
 </ul>
 <p>在Gridea同步到Github Pages的过程中，由于Github的特殊原因经常会失败</p>
 <blockquote>
@@ -143,7 +173,7 @@ git config --global --unset https.proxy
 分支：默认就是<code>main</code><br>
 仓库用户名：GitHub名<br>
 邮箱：GitHub邮箱<br>
-令牌：就是Token<br>
+令牌：就是Token<a href="https://zerobiubiu.github.io/blogs/post/huo-qu-github-de-token">Github Token获取教程</a><br>
 CNAM：不填<br>
 然后保存，检测远程连接，通过了就可以点同步了，同步会把博客自动的同步到我们的仓库。</p>
 <p>至于主题，内容就很简单，自己看着办就好啦。</p>
