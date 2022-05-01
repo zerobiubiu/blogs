@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zerobiubiu.github.io/blogs/favicon.ico?v=1651383656858">
+<link rel="shortcut icon" href="https://zerobiubiu.github.io/blogs/favicon.ico?v=1651384947694">
 <link rel="stylesheet" href="https://zerobiubiu.github.io/blogs/styles/main.css">
 
 
@@ -27,9 +27,12 @@
 </script>
 
 
-    <meta name="description" content="配置好
-" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="
+Typora是一款跨平台的Markdown编辑器软件，常常用它来写笔记或者博客。当使用Typora做笔记时，常常需要上传截图，存在本地不方便传输，所以需要一个图床来存图片提供访问链接。Typora内置使用PicGo
+
+
+0️⃣ 配置Pic..." />
+    <meta name="keywords" content="Typora,PicGo,图床" />
   </head>
   <body>
     <div id="app" class="main">
@@ -38,7 +41,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zerobiubiu.github.io/blogs">
-        <img src="https://zerobiubiu.github.io/blogs/images/avatar.png?v=1651383656858" class="site-logo">
+        <img src="https://zerobiubiu.github.io/blogs/images/avatar.png?v=1651384947694" class="site-logo">
         <h1 class="site-title">Zerobiubiu</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -117,9 +120,43 @@
               </div>
             
             <div class="post-content" v-pre>
-              <p>配置好</p>
+              <blockquote>
+<p>Typora是一款跨平台的Markdown编辑器软件，常常用它来写笔记或者博客。当使用Typora做笔记时，常常需要上传截图，存在本地不方便传输，所以需要一个图床来存图片提供访问链接。Typora内置使用PicGo</p>
+</blockquote>
+<!-- more -->
+<h2 id="0️⃣-配置picgo">0️⃣ 配置PicGo</h2>
+<p><a href="https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/">PicGo配合Github做图床的教程</a></p>
+<h2 id="1️⃣-配置typora">1️⃣ 配置Typora</h2>
+<p>安装<a href="https://www.typora.net/">Typora</a></p>
+<p>打开Typora——文件——偏好设置——图像</p>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs/post-images/1651384263741.PNG" alt="" loading="lazy"></figure>
+<p>在上传服务设定处，上传服务选择PicGo(app)<br>
+PicGo路径不能只能识别的话手动设定一下位置就可以</p>
+<p>设置好后点击<code>验证上传选项</code></p>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs/post-images/1651384447422.PNG" alt="" loading="lazy"></figure>
+<p>成功就代表配置成功了。</p>
+<h2 id="2️⃣使用">2️⃣使用</h2>
+<p>在向上看，插入图片时...  改成上传图片，即可在导入图片时自动上传并替换markdown文档中的路径。</p>
+<p>我更倾向于复制到指定目录，需要上传时对图片右键，点上传图片，他就会自动上传，不会没必要的图片也上传了。</p>
+<p>打开一个未上传图像的文档并不会直接上传，即便插入图片时上传图片也不会自动上传，还是需要手动去点上传，只有在插入新的图片到文档时才会上传图片。</p>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/typora/" class="tag">
+                    Typora
+                  </a>
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/picgo/" class="tag">
+                    PicGo
+                  </a>
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/tu-chuang/" class="tag">
+                    图床
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">

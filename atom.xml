@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zerobiubiu.github.io/blogs</id>
     <title>Zerobiubiu</title>
-    <updated>2022-05-01T05:41:26.968Z</updated>
+    <updated>2022-05-01T06:02:38.549Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zerobiubiu.github.io/blogs"/>
     <link rel="self" href="https://zerobiubiu.github.io/blogs/atom.xml"/>
@@ -46,7 +46,29 @@
         <link href="https://zerobiubiu.github.io/blogs/post/typora-pei-he-picgo-shang-chuan-tu-chuang/">
         </link>
         <updated>2022-04-30T06:09:22.000Z</updated>
-        <content type="html"><![CDATA[<p>配置好</p>
+        <summary type="html"><![CDATA[<blockquote>
+<p>Typora是一款跨平台的Markdown编辑器软件，常常用它来写笔记或者博客。当使用Typora做笔记时，常常需要上传截图，存在本地不方便传输，所以需要一个图床来存图片提供访问链接。Typora内置使用PicGo</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>Typora是一款跨平台的Markdown编辑器软件，常常用它来写笔记或者博客。当使用Typora做笔记时，常常需要上传截图，存在本地不方便传输，所以需要一个图床来存图片提供访问链接。Typora内置使用PicGo</p>
+</blockquote>
+<!-- more -->
+<h2 id="0️⃣-配置picgo">0️⃣ 配置PicGo</h2>
+<p><a href="https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/">PicGo配合Github做图床的教程</a></p>
+<h2 id="1️⃣-配置typora">1️⃣ 配置Typora</h2>
+<p>安装<a href="https://www.typora.net/">Typora</a></p>
+<p>打开Typora——文件——偏好设置——图像</p>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs/post-images/1651384263741.PNG" alt="" loading="lazy"></figure>
+<p>在上传服务设定处，上传服务选择PicGo(app)<br>
+PicGo路径不能只能识别的话手动设定一下位置就可以</p>
+<p>设置好后点击<code>验证上传选项</code></p>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs/post-images/1651384447422.PNG" alt="" loading="lazy"></figure>
+<p>成功就代表配置成功了。</p>
+<h2 id="2️⃣使用">2️⃣使用</h2>
+<p>在向上看，插入图片时...  改成上传图片，即可在导入图片时自动上传并替换markdown文档中的路径。</p>
+<p>我更倾向于复制到指定目录，需要上传时对图片右键，点上传图片，他就会自动上传，不会没必要的图片也上传了。</p>
+<p>打开一个未上传图像的文档并不会直接上传，即便插入图片时上传图片也不会自动上传，还是需要手动去点上传，只有在插入新的图片到文档时才会上传图片。</p>
 ]]></content>
     </entry>
     <entry>
@@ -115,7 +137,7 @@
 </blockquote>
 <!-- more -->
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7013590"><label class="task-list-item-label" for="task-item-7013590"> 2022年4月30日12点55分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3284857"><label class="task-list-item-label" for="task-item-3284857"> 2022年4月30日12点55分</label></li>
 </ul>
 <p>在Gridea同步到Github Pages的过程中，由于Github的特殊原因经常会失败</p>
 <blockquote>
