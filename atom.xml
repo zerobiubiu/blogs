@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zerobiubiu.github.io/blogs</id>
     <title>Zerobiubiu</title>
-    <updated>2022-05-01T04:44:26.164Z</updated>
+    <updated>2022-05-01T05:07:04.568Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zerobiubiu.github.io/blogs"/>
     <link rel="self" href="https://zerobiubiu.github.io/blogs/atom.xml"/>
@@ -76,7 +76,31 @@
         <link href="https://zerobiubiu.github.io/blogs/post/gridea-shi-yong-wen-ti/">
         </link>
         <updated>2022-04-30T00:10:00.000Z</updated>
-        <content type="html"><![CDATA[<p>在Gridea同步到Github Pages的过程中，由于Github的特殊原因经常会失败</p>
+        <summary type="html"><![CDATA[<blockquote>
+<p>Gridea在使用中遇到的问题，BUG解决方案</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>Gridea在使用中遇到的问题，BUG解决方案</p>
+</blockquote>
+<!-- more -->
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9469659"><label class="task-list-item-label" for="task-item-9469659"> 2022年4月30日12点55分</label></li>
+</ul>
+<p>在Gridea同步到Github Pages的过程中，由于Github的特殊原因经常会失败</p>
+<blockquote>
+<p>点击菜单栏 编辑 -&gt; 开发者工具，然后切换到 Console 栏，点击同步，查看报错信息解决。</p>
+</blockquote>
+<p>报错&quot;connect ETIMEDOUT&quot;就是连不上，挂代理加速试试</p>
+<p>开代理还报错，可能就是Git的代理设置问题</p>
+<p>先把远程信息写好，检测远程连接，只要信息没错就行，通不通可能受你网路限制，尽量测试通一次</p>
+<p>去关了Git的代理，让他去走系统代理</p>
+<pre><code class="language-bash">git config --global --unset http.proxy
+git config --global --unset https.proxy 
+</code></pre>
+<p>如果还不行，可以手动上传output，虽然麻烦点，但是也是解决办法</p>
+<p>左下角设置——站点源文件路径<br>
+打开这个地址，找到output文件夹，进去后用Git上传就可以，可以用Github Desktop把这个添加进去，用图形化上传更简单点，每次需要上传只要点同步，同步失败的话直接打开Github Desktop里的这个库，</p>
 ]]></content>
     </entry>
     <entry>
