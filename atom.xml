@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zerobiubiu.github.io/blogs</id>
     <title>Zerobiubiu</title>
-    <updated>2022-05-02T01:23:44.992Z</updated>
+    <updated>2022-05-02T14:55:19.634Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zerobiubiu.github.io/blogs"/>
     <link rel="self" href="https://zerobiubiu.github.io/blogs/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://zerobiubiu.github.io/blogs/images/avatar.png</logo>
     <icon>https://zerobiubiu.github.io/blogs/favicon.ico</icon>
     <rights>All rights reserved 2022, Zerobiubiu</rights>
+    <entry>
+        <title type="html"><![CDATA[VS code中开启Cascadia Code字体连字]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/vs-code-zhong-kai-qi-cascadia-code-zi-ti-lian-zi/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/vs-code-zhong-kai-qi-cascadia-code-zi-ti-lian-zi/">
+        </link>
+        <updated>2022-05-02T14:24:48.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>微软推出的一个程序员友好的字体，观感还行。有意思的是可以开启连字</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>微软推出的一个程序员友好的字体，观感还行。有意思的是可以开启连字</p>
+</blockquote>
+<!-- more -->
+<h2 id="安装字体">安装字体</h2>
+<p>去<a href="https://github.com/microsoft/cascadia-code">cascadia-code</a>下载字体，安装下载的发行安装包里的otf或者ttf的字体就可以。</p>
+<h2 id="配置">配置</h2>
+<p>打开vs code的设置，转到 json 配置，有<code>&quot;editor.fontFamily&quot;</code>配置项的话内容改成<code>&quot;Cascadia Code Regular&quot;</code><br>
+这是更改字体，开启连字只需要把<code>&quot;editor.fontLigatures&quot;</code>改成<code>true</code>就行。<br>
+没有这两项配置的话添加上就行。</p>
+<p>改好效果应该就和封面一样了，对很多这种连字符展示更形象，具体有多少种自己试试就知道了。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Gridea博客开启Gitalk评论]]></title>
         <id>https://zerobiubiu.github.io/blogs/post/gridea-bo-ke-kai-qi-gitalk-ping-lun/</id>
@@ -236,7 +259,7 @@ PicGo路径不能只能识别的话手动设定一下位置就可以</p>
 </blockquote>
 <!-- more -->
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-914087"><label class="task-list-item-label" for="task-item-914087"> 2022年4月30日12点55分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9281025"><label class="task-list-item-label" for="task-item-9281025"> 2022年4月30日12点55分</label></li>
 </ul>
 <p>在Gridea同步到Github Pages的过程中，由于Github的特殊原因经常会失败</p>
 <blockquote>
