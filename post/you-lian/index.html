@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>GitHub | Zerobiubiu</title>
+<title>🤝 友情链接 | Zerobiubiu</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -11,6 +11,12 @@
 <link rel="shortcut icon" href="https://zerobiubiu.github.io/blogs/favicon.ico?v=1651454606005">
 <link rel="stylesheet" href="https://zerobiubiu.github.io/blogs/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -27,7 +33,9 @@
 </script>
 
 
-    <meta name="description" content="这里是Zerobiubiu的博客">
+    <meta name="description" content="东灯
+" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -119,57 +127,26 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: GitHub</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zerobiubiu.github.io/blogs/post/huo-qu-github-de-token/">
-                  <h2 class="post-title">获取Github的Token</h2>
-                </a>
-                <div class="post-date">
-                  2022-05-01
-                </div>
-                <div class="post-abstract">
-                  <blockquote>
-<p>获取GitHub的Token的教程</p>
-</blockquote>
+          <div class="post-detail">
+            <h2 class="post-title">🤝 友情链接</h2>
+            <div class="post-date">2022-05-02</div>
+            
+            <div class="post-content" v-pre>
+              <p><a href="https://lampese.com/">东灯</a></p>
 
-                </div>
-              </div>
-              
-                <a class="right" href="https://zerobiubiu.github.io/blogs/post/huo-qu-github-de-token/">
-                  <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs/post-images/huo-qu-github-de-token.PNG')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/">
-                  <h2 class="post-title">使用PicGo+GitHub搭建图床</h2>
-                </a>
-                <div class="post-date">
-                  2022-04-30
-                </div>
-                <div class="post-abstract">
-                  <p>写Markdown文档需要插入图片，转换为HTML放在Github Pages的时候不想在同一仓库放置图片，搭建个图床统一存放图片</p>
+            </div>
+            
+            
 
-                </div>
-              </div>
+            
               
-                <a class="right" href="https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/">
-                  <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs/post-images/yong-github-da-jian-tu-chuang.PNG')">
-                  </div>
-                </a>
+                <div id="gitalk-container" data-aos="fade-in"></div>
               
-            </article>
-          
 
-          <div class="pagination-container">
-  
-  
-</div>
+              
+            
+
+          </div>
 
         </div>
       </div>
@@ -195,6 +172,29 @@ var app = new Vue({
     hljs.initHighlightingOnLoad()
   </script>
 
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '9e77d87054021bb4dc89',
+        clientSecret: '372ad4757a96a2e749ec8ec58aff1c12d38142ec',
+        repo: 'blogs',
+        owner: 'zerobiubiu',
+        admin: ['zerobiubiu'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
