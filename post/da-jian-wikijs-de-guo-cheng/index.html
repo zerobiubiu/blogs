@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>图床 | Zerobiubiu</title>
+<title>搭建Wiki.js的过程 | Zerobiubiu</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -11,6 +11,12 @@
 <link rel="shortcut icon" href="https://zerobiubiu.github.io/blogs/favicon.ico?v=1651587117915">
 <link rel="stylesheet" href="https://zerobiubiu.github.io/blogs/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -27,7 +33,14 @@
 </script>
 
 
-    <meta name="description" content="这里是Zerobiubiu的博客">
+    <meta name="description" content="
+Wiki.js官网自称最为强大的和可扩展的开源Wiki软件
+可以采用多种方式编写Wiki，支持常用的markdown、HTML等
+
+
+ℹ️ 序
+为了让我写的文档能够方便的访问和查看，之前用docsify生成的静态页面，放在GitHub p..." />
+    <meta name="keywords" content="wiki.js" />
   </head>
   <body>
     <div id="app" class="main">
@@ -113,57 +126,56 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 图床</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zerobiubiu.github.io/blogs/post/typora-pei-he-picgo-shang-chuan-tu-chuang/">
-                  <h2 class="post-title">Typora配合PicGo上传图床</h2>
-                </a>
-                <div class="post-date">
-                  2022-04-30
-                </div>
-                <div class="post-abstract">
-                  <blockquote>
-<p>Typora是一款跨平台的Markdown编辑器软件，常常用它来写笔记或者博客。当使用Typora做笔记时，常常需要上传截图，存在本地不方便传输，所以需要一个图床来存图片提供访问链接。Typora内置使用PicGo</p>
+          <div class="post-detail">
+            <h2 class="post-title">搭建Wiki.js的过程</h2>
+            <div class="post-date">2022-05-03</div>
+            
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs/post-images/da-jian-wikijs-de-guo-cheng.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>Wiki.js官网自称最为强大的和可扩展的开源Wiki软件<br>
+可以采用多种方式编写Wiki，支持常用的markdown、HTML等</p>
+</blockquote>
+<!-- more -->
+<h2 id="i️-序">ℹ️ 序</h2>
+<p>为了让我写的文档能够方便的访问和查看，之前用docsify生成的静态页面，放在GitHub pages托管，现在感觉结构太缺乏，不是很能满足现在的需求（心理需求），决定还是切换到Wiki.js了</p>
+<h2 id="安装">🆕 安装</h2>
+<blockquote>
+<p>崩溃了，快写完了，保存测试，数据丢了，内容只打这儿了。</p>
 </blockquote>
 
-                </div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/wikijs/" class="tag">
+                    wiki.js
+                  </a>
+                
               </div>
-              
-                <a class="right" href="https://zerobiubiu.github.io/blogs/post/typora-pei-he-picgo-shang-chuan-tu-chuang/">
-                  <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs/post-images/typora-pei-he-picgo-shang-chuan-tu-chuang.png')">
-                  </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zerobiubiu.github.io/blogs/post/vs-code-zhong-kai-qi-cascadia-code-zi-ti-lian-zi/">
+                  <h3 class="post-title">
+                    VS code中开启Cascadia Code字体连字
+                  </h3>
                 </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/">
-                  <h2 class="post-title">使用PicGo+GitHub搭建图床</h2>
-                </a>
-                <div class="post-date">
-                  2022-04-30
-                </div>
-                <div class="post-abstract">
-                  <p>写Markdown文档需要插入图片，转换为HTML放在Github Pages的时候不想在同一仓库放置图片，搭建个图床统一存放图片</p>
-
-                </div>
               </div>
-              
-                <a class="right" href="https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/">
-                  <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs/post-images/yong-github-da-jian-tu-chuang.PNG')">
-                  </div>
-                </a>
-              
-            </article>
-          
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
 
         </div>
       </div>
@@ -189,6 +201,29 @@ var app = new Vue({
     hljs.initHighlightingOnLoad()
   </script>
 
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '9e77d87054021bb4dc89',
+        clientSecret: '372ad4757a96a2e749ec8ec58aff1c12d38142ec',
+        repo: 'blogs',
+        owner: 'zerobiubiu',
+        admin: ['zerobiubiu'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

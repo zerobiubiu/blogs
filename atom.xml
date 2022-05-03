@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zerobiubiu.github.io/blogs</id>
     <title>Zerobiubiu</title>
-    <updated>2022-05-02T14:55:19.634Z</updated>
+    <updated>2022-05-03T14:12:00.104Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zerobiubiu.github.io/blogs"/>
     <link rel="self" href="https://zerobiubiu.github.io/blogs/atom.xml"/>
@@ -10,6 +10,30 @@
     <logo>https://zerobiubiu.github.io/blogs/images/avatar.png</logo>
     <icon>https://zerobiubiu.github.io/blogs/favicon.ico</icon>
     <rights>All rights reserved 2022, Zerobiubiu</rights>
+    <entry>
+        <title type="html"><![CDATA[搭建Wiki.js的过程]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/da-jian-wikijs-de-guo-cheng/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/da-jian-wikijs-de-guo-cheng/">
+        </link>
+        <updated>2022-05-03T11:55:41.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>Wiki.js官网自称最为强大的和可扩展的开源Wiki软件<br>
+可以采用多种方式编写Wiki，支持常用的markdown、HTML等</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>Wiki.js官网自称最为强大的和可扩展的开源Wiki软件<br>
+可以采用多种方式编写Wiki，支持常用的markdown、HTML等</p>
+</blockquote>
+<!-- more -->
+<h2 id="i️-序">ℹ️ 序</h2>
+<p>为了让我写的文档能够方便的访问和查看，之前用docsify生成的静态页面，放在GitHub pages托管，现在感觉结构太缺乏，不是很能满足现在的需求（心理需求），决定还是切换到Wiki.js了</p>
+<h2 id="安装">🆕 安装</h2>
+<blockquote>
+<p>崩溃了，快写完了，保存测试，数据丢了，内容只打这儿了。</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[VS code中开启Cascadia Code字体连字]]></title>
         <id>https://zerobiubiu.github.io/blogs/post/vs-code-zhong-kai-qi-cascadia-code-zi-ti-lian-zi/</id>
@@ -259,7 +283,7 @@ PicGo路径不能只能识别的话手动设定一下位置就可以</p>
 </blockquote>
 <!-- more -->
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9281025"><label class="task-list-item-label" for="task-item-9281025"> 2022年4月30日12点55分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9872794"><label class="task-list-item-label" for="task-item-9872794"> 2022年4月30日12点55分</label></li>
 </ul>
 <p>在Gridea同步到Github Pages的过程中，由于Github的特殊原因经常会失败</p>
 <blockquote>
