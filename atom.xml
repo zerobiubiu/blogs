@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zerobiubiu.github.io/blogs</id>
     <title>Zerobiubiu</title>
-    <updated>2022-05-04T05:36:33.198Z</updated>
+    <updated>2022-05-10T16:04:19.686Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zerobiubiu.github.io/blogs"/>
     <link rel="self" href="https://zerobiubiu.github.io/blogs/atom.xml"/>
@@ -10,6 +10,188 @@
     <logo>https://zerobiubiu.github.io/blogs/images/avatar.png</logo>
     <icon>https://zerobiubiu.github.io/blogs/favicon.ico</icon>
     <rights>All rights reserved 2022, Zerobiubiu</rights>
+    <entry>
+        <title type="html"><![CDATA[Typora 画图]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/typora-hua-tu/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/typora-hua-tu/">
+        </link>
+        <updated>2022-05-10T10:43:56.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>说是画图，但并不像其他专业的绘图软件那样，通过拖拖拽拽一些元素，画出流程图、时序图等。<br>
+Typora 的制图功能是由 Mermaid 强力驱动，如果你使用过 PlantUML，那么 Mermaid 也非常容易上手。<br>
+最大的用途是能轻松的在内部生成一个轻量的图，而不需要再去其他软件导出图片。</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>说是画图，但并不像其他专业的绘图软件那样，通过拖拖拽拽一些元素，画出流程图、时序图等。<br>
+Typora 的制图功能是由 Mermaid 强力驱动，如果你使用过 PlantUML，那么 Mermaid 也非常容易上手。<br>
+最大的用途是能轻松的在内部生成一个轻量的图，而不需要再去其他软件导出图片。</p>
+</blockquote>
+<!-- more -->
+<h2 id="使用方法">使用方法</h2>
+<p>Typora内置了对Mermaid的支持，Markdown的语法因不同的解析器或编辑器而异，Typora使用的是GitHub Flavored Markdown<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。<br>
+Mermaid 支持绘制非常多种类的图，常见的有时序图、流程图、类图、甘特图等等。<br>
+首先在 Typora 中，输入```mermaid 然后敲击回车，即可初始化一张空白图。</p>
+<h3 id="流程图">流程图</h3>
+<p>语法解释：<code>graph</code>关键字就是声明一张流程图，<code>TD</code>表示的是方向，这里的含义是 Top-Down 由上至下。</p>
+<pre><code class="language-markdown">```mermaid
+graph TD
+    A[Christmas] --&gt;|Get money| B(Go shopping)
+    B --&gt; C{Let me think}
+    C --&gt;|One| D[Laptop]
+    C --&gt;|Two| E[iPhone]
+    C --&gt;|Three| F[fa:fa-car Car]
+```
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs/post-images/1652196724976.jpg" alt="" loading="lazy"></figure>
+<p><code>LR</code>在这里的含义是 Left-Right 由左至右。</p>
+<pre><code class="language-markdown">```mermaid
+graph LR
+    A[Christmas] --&gt;|Get money| B(Go shopping)
+    B --&gt; C{Let me think}
+    C --&gt;|One| D[Laptop]
+    C --&gt;|Two| E[iPhone]
+    C --&gt;|Three| F[fa:fa-car Car]
+```
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs/post-images/1652196929955.jpg" alt="" loading="lazy"></figure>
+<h3 id="时序图">时序图</h3>
+<p>语法解释：<code>-&gt;&gt;</code>代表实线箭头，<code>--&gt;&gt;</code>则代表虚线。</p>
+<pre><code class="language-markdown">```mermaid
+sequenceDiagram
+    Alice-&gt;&gt;+John: Hello John, how are you?
+    Alice-&gt;&gt;+John: John, can you hear me?
+    John--&gt;&gt;-Alice: Hi Alice, I can hear you!
+    John--&gt;&gt;-Alice: I feel great!
+```
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.github.io/blogs/post-images/1652197237445.jpg" alt="" loading="lazy"></figure>
+<h3 id="状态图">状态图</h3>
+<p>语法解释：[*] 表示开始或者结束，如果在箭头右边则表示结束。</p>
+<pre><code class="language-markdown">```mermaid
+stateDiagram-v2
+    [*] --&gt; Still
+    Still --&gt; [*]
+    Still --&gt; Moving
+    Moving --&gt; Still
+    Moving --&gt; Crash
+    Crash --&gt; [*]
+```
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.github.io/blogs/post-images/1652197307364.jpg" alt="" loading="lazy"></figure>
+<h3 id="类图">类图</h3>
+<p>语法解释：&lt;|-- 表示继承，+ 表示 public，- 表示 private，学过 Java 的应该都知道。</p>
+<pre><code class="language-markdown">```mermaid
+classDiagram
+    Animal &lt;|-- Duck
+    Animal &lt;|-- Fish
+    Animal &lt;|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+      +String beakColor
+      +swim()
+      +quack()
+    }
+    class Fish{
+      -int sizeInFeet
+      -canEat()
+    }
+    class Zebra{
+      +bool is_wild
+      +run()
+    }
+```
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://zerobiubiu.github.io/blogs/post-images/1652197374799.jpg" alt="" loading="lazy"></figure>
+<h3 id="甘特图">甘特图</h3>
+<p>甘特图一般用来表示项目的计划排期，目前在工作中经常会用到。<br>
+语法也非常简单，从上到下依次是图片标题、日期格式、项目、项目细分的任务。</p>
+<pre><code class="language-markdown">```mermaid
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2014-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2014-01-12  , 12d
+    another task      : 24d
+```
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://zerobiubiu.github.io/blogs/post-images/1652197428957.jpg" alt="" loading="lazy"></figure>
+<h3 id="饼图">饼图</h3>
+<p>饼图使用 pie 表示，标题下面分别是区域名称及其百分比。</p>
+<pre><code class="language-markdown">```mermaid
+pie title Pets adopted by volunteers
+    &quot;Dogs&quot; : 386
+    &quot;Cats&quot; : 85
+    &quot;Rats&quot; : 15
+```
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://zerobiubiu.github.io/blogs/post-images/1652197489246.jpg" alt="" loading="lazy"></figure>
+<h3 id="er图">ER图</h3>
+<pre><code class="language-markdown">```mermaid
+erDiagram
+          CUSTOMER }|..|{ DELIVERY-ADDRESS : has
+          CUSTOMER ||--o{ ORDER : places
+          CUSTOMER ||--o{ INVOICE : &quot;liable for&quot;
+          DELIVERY-ADDRESS ||--o{ ORDER : receives
+          INVOICE ||--|{ ORDER : covers
+          ORDER ||--|{ ORDER-ITEM : includes
+          PRODUCT-CATEGORY ||--|{ PRODUCT : contains
+          PRODUCT ||--o{ ORDER-ITEM : &quot;ordered in&quot;
+```
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://zerobiubiu.github.io/blogs/post-images/1652197548993.jpg" alt="" loading="lazy"></figure>
+<h3 id="用户旅程图">用户旅程图</h3>
+<pre><code class="language-markdown">```mermaid
+  journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 3: Me
+```
+</code></pre>
+<figure data-type="image" tabindex="9"><img src="https://zerobiubiu.github.io/blogs/post-images/1652197641191.jpg" alt="" loading="lazy"></figure>
+<h3 id="git分支图">Git分支图</h3>
+<pre><code class="language-markdown">```mermaid
+    gitGraph
+      commit
+      commit
+      branch develop
+      checkout develop
+      commit
+      commit
+      checkout main
+      merge develop
+      commit
+      commit
+```
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://zerobiubiu.github.io/blogs/post-images/1652197715550.jpg" alt="" loading="lazy"></figure>
+<h2 id="结束">结束</h2>
+<p>Mermaid支持的图目前就这么多，更深入的使用自行了解。</p>
+<p>Mermaid<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> 官方有一个在线的工具<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，可以导出 SVG 和 PNG。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://docs.github.com/cn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github">GitHub Flavored Markdown</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://mermaid-js.github.io/mermaid/#/">mermaid文档</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNpVkE1qw0AMha8itEohvoAXhcZOsgm00Ow8XgiPnBna-WEsU4Ltu3ccE2i1kvS-9xCasAuascRbomjgWisPud6ayiQ7iKOhhaJ4nc8s4ILn-wyH3TnAYEKM1t9eNv6wQlBNlxVjEGP917JJ1cP_7nmGurlQlBDbv8r1J8xwbOyHyfH_FZM4u05NT2VPRUcJKkot7tFxcmR1PntaDQrFsGOFZW419zR-i0Lll4yOUZPwUVsJCUtJI--RRgmfd989542pLeUnuG25_ALXsls9">在线转换图片工具</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Debian10装MySQL]]></title>
         <id>https://zerobiubiu.github.io/blogs/post/debian1010-zhuang-mysql/</id>
@@ -409,7 +591,7 @@ PicGo路径不能只能识别的话手动设定一下位置就可以</p>
 </blockquote>
 <!-- more -->
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4952765"><label class="task-list-item-label" for="task-item-4952765"> 2022年4月30日12点55分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4656559"><label class="task-list-item-label" for="task-item-4656559"> 2022年4月30日12点55分</label></li>
 </ul>
 <p>在Gridea同步到Github Pages的过程中，由于Github的特殊原因经常会失败</p>
 <blockquote>
@@ -425,54 +607,6 @@ git config --global --unset https.proxy
 <p>如果还不行，可以手动上传output，虽然麻烦点，但是也是解决办法</p>
 <p>左下角设置——站点源文件路径<br>
 打开这个地址，找到output文件夹，进去后用Git上传就可以，可以用Github Desktop把这个添加进去，用图形化上传更简单点，每次需要上传只要点同步，同步失败的话直接打开Github Desktop里的这个库，推上去就可以。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Gridea搭建博客的过程]]></title>
-        <id>https://zerobiubiu.github.io/blogs/post/da-jian-bo-ke/</id>
-        <link href="https://zerobiubiu.github.io/blogs/post/da-jian-bo-ke/">
-        </link>
-        <updated>2022-04-30T00:08:44.000Z</updated>
-        <summary type="html"><![CDATA[<blockquote>
-<p>心血来潮搭个博客</p>
-</blockquote>
-<p>采用用<a href="https://gridea.dev/">Gridea</a>写，推送到<a href="https://pages.github.com/">Github Pages</a>托管</p>
-]]></summary>
-        <content type="html"><![CDATA[<blockquote>
-<p>心血来潮搭个博客</p>
-</blockquote>
-<p>采用用<a href="https://gridea.dev/">Gridea</a>写，推送到<a href="https://pages.github.com/">Github Pages</a>托管</p>
-<!-- more -->
-<h2 id="0️⃣-创建github仓库">0️⃣ 创建GitHub仓库</h2>
-<p>注册一个GitHub账号，创建仓库，给仓库起名（可以选择用<code>用户名.github.io</code>来做仓库名，这样可以直接访问<code>用户名.github.io</code>，不然访问Pages的时候就要用，<code>用户名.github.io/仓库名</code>。当然<code>用户名.github.io</code>只能有一个，一定要慎重，关于这一块的详细内容可以自行查找。），记得勾选<code>Add a README file</code>，不然是空的，不方便其他的操作。<br>
-权限一定要是<mark>Public</mark>，不然无法访问。<br>
-<img src="https://zerobiubiu.github.io/blogs/post-images/1651377348453.PNG" alt="" loading="lazy"></p>
-<p>创建好新仓库后，进到仓库设置<br>
-<img src="https://zerobiubiu.github.io/blogs/post-images/1651377262844.png" alt="" loading="lazy"><br>
-找到Pages，默认的Source选项是None，这里是调整分支选项的<br>
-<img src="https://zerobiubiu.github.io/blogs/post-images/1651377744381.png" alt="" loading="lazy"><br>
-创建仓库的时候选了<code>Add a README file</code>，他会默认创建一个<code>main</code>分支，选择<code>main</code>分支就行，然后点<code>Save</code>按钮保存就创建好了。<br>
-<img src="https://zerobiubiu.github.io/blogs/post-images/1651377899466.png" alt="" loading="lazy"><br>
-创建完毕会在上边显示你的Pages地址，以后你直接访问这个地址就能进入你的网站页面了。<br>
-由于刚创建，现在点进去是404的状态，过几分钟才能加载出来，你每次提交更新都会等几分钟才能加载。<br>
-刚创建的时候增加了 README 文件，由于没有其他文件，他会默认加载这个页面，或者你提交index.html文件，他会默认加载 index.html 。关于Github Pages加载的情况自行搜索，不再赘述。</p>
-<h2 id="1️⃣-配置gridea">1️⃣ 配置Gridea</h2>
-<p>先去官网下载<a href="https://gridea.dev/">Gridea</a><br>
-<img src="https://zerobiubiu.github.io/blogs/post-images/1651378663133.PNG" alt="" loading="lazy"></p>
-<p>先不管别的，先配置远程<br>
-<img src="https://zerobiubiu.github.io/blogs/post-images/1651378790249.PNG" alt="" loading="lazy"><br>
-平台：Github Pages<br>
-域名：<code>用户名.github.io/仓库名</code>，如果仓库是<code>用户名.github.io</code>，就不用写<code>/仓库名</code><br>
-仓库名：刚刚创建的仓库名<br>
-分支：默认就是<code>main</code><br>
-仓库用户名：GitHub名<br>
-邮箱：GitHub邮箱<br>
-令牌：就是Token<a href="https://zerobiubiu.github.io/blogs/post/huo-qu-github-de-token">Github Token获取教程</a><br>
-CNAM：不填<br>
-然后保存，检测远程连接，通过了就可以点同步了，同步会把博客自动的同步到我们的仓库。</p>
-<p>至于主题，内容就很简单，自己看着办就好啦。</p>
-<h2 id="结束">🆗 结束</h2>
-<p>至此，配置就结束了，每次写完文章可以先预览，再去推送到仓库。</p>
 ]]></content>
     </entry>
 </feed>
