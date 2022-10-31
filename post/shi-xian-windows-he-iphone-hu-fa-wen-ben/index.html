@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>实现Windows和iPhone互发文本 | Zerobiubiu</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zerobiubiu.top/favicon.ico?v=1667231042916">
+<link rel="stylesheet" href="https://zerobiubiu.top/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYETLQP793"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QYETLQP793');
+</script>
+
+
+    <meta name="description" content="
+通过Windows以通知形式发送到iPhone文本，iPhone发送到Windows自动复制来实现类似共享剪贴板
+
+
+事由
+由于不可抗力，iPhone始终无法和Windows实现共享剪贴板，导致了传输文本成了一件麻烦事，只好自己去实现一个..." />
+    <meta name="keywords" content="Windows,iPhone,node,bark" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zerobiubiu.top">
+        <img src="https://zerobiubiu.top/images/avatar.png?v=1667231042916" class="site-logo">
+        <h1 class="site-title">Zerobiubiu</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs" class="site-nav">
+            🔛 首页
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/archives" class="site-nav">
+            📃 文档
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/tags" class="site-nav">
+            🗃️ 标签
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/you-lian" class="site-nav">
+            🤝 友情链接
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/about" class="site-nav">
+            🔚 关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zerobiubiu" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      这里是Zerobiubiu的博客
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://zerobiubiu.top/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">实现Windows和iPhone互发文本</h2>
+            <div class="post-date">2022-06-13</div>
+            
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.top/post-images/shi-xian-windows-he-iphone-hu-fa-wen-ben.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>通过Windows以通知形式发送到iPhone文本，iPhone发送到Windows自动复制来实现类似共享剪贴板</p>
+</blockquote>
+<!-- more -->
+<h2 id="事由">事由</h2>
+<p>由于不可抗力，iPhone始终无法和Windows实现共享剪贴板，导致了传输文本成了一件麻烦事，只好自己去实现一个还算方便的形式。</p>
+<h2 id="实现方式">实现方式</h2>
+<h3 id="windows发送到iphone">Windows发送到iPhone</h3>
+<p>iPhone下载Bark即可实现自由自定义通知。</p>
+<p>只需要根据要求发送get请求就可以实现推送到通知到iPhone。</p>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.top/post-images/1655125336195.png" alt="" loading="lazy"></figure>
+<p>在Chrome浏览器可以直接去商店找到bark插件，配置好路径就能点击就发送到手机。</p>
+<p><a href="https://chrome.google.com/webstore/detail/bark/pmlkbdbpglkgbgopghdcmohdcmladeii">Bark - Chrome 网上应用店 (google.com)</a></p>
+<p>或者通过Quicker动作发送复制内容。</p>
+<p><a href="https://getquicker.net/Sharedaction?code=e927d844-d212-4428-758d-08d69de12a3b">发送到iPhone - 动作信息 - Quicker (getquicker.net)</a></p>
+<p>我也尝试实现了图形化，采用易语言写了图形界面，但是由于编码有问题，就放弃了。转向用C++实现了一个程序，添加Path环境变量，即可实现Shell命令，或者配合上Power Toys的Power Toys Run即可实现编辑内容后发布。<br>
+<img src="https://zerobiubiu.top/post-images/1655126088120.PNG" alt="" loading="lazy"></p>
+<p>不过在Power Toys Run有BUG，附带中文就不能正确引导，更多的是放在Shell环境下可以使用。</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;stdlib.h&gt;
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    string content = argv[1];
+    content.erase(0, 1);
+    string url = &quot;替换成自己的URL&quot; + content;
+    string curl = &quot;curl &quot;+ url;
+    system(curl.c_str());
+
+    return 0;
+}
+</code></pre>
+<p>依赖：</p>
+<ul>
+<li>Curl</li>
+</ul>
+<p>为了实现简单的get请求，而不是再去写复杂的GET实现，直接调用Shell环境，用Curl发送GET请求，导致必须依赖Curl，以及运行时必然会闪过Shell页面。</p>
+<blockquote>
+<p>技术不达标，未能实现复制自动发送。</p>
+<p>由于iOS14.5之后不能自动复制通知，也比较遗憾在iPhone端也不能自动复制。</p>
+</blockquote>
+<h2 id="iphone发送到windows">iPhone发送到Windows</h2>
+<p>用node实现一个简单的http服务器，配合Apple 快捷指令，发送PUT请求，即可将内容发送到Windows并实现自动复制。</p>
+<h3 id="快捷指令">快捷指令</h3>
+<blockquote>
+<p>记得将快捷指令内的URL改成自己服务器的。</p>
+</blockquote>
+<p><a href="https://www.icloud.com/shortcuts/842a0b44ca0648f98cbda206fe05b806">发送剪贴板文本</a></p>
+<p><a href="https://www.icloud.com/shortcuts/35aa7db23b6e44f988d2bbdcc38c876f">扫描二维码内容发送</a></p>
+<h3 id="服务器">服务器</h3>
+<p>添加依赖</p>
+<pre><code class="language-shell">npm install http iconv-lite child_process silly-datetime
+</code></pre>
+<p>服务器代码：</p>
+<pre><code class="language-javascript">#!node
+
+const { exec } = require('child_process')
+const sd = require('silly-datetime')
+const iconv = require('iconv-lite')
+const http = require(&quot;http&quot;)
+const fs = require('fs')
+
+var runMath = 1
+
+const server = http.createServer()
+const time = sd.format(new Date(), 'YYYY-MM-DD HH:mm')
+const logTime = sd.format(new Date(), 'YYYY-MM-DD HH.mm')
+const log = `服务器启动时间：${time}\n`
+
+console.log(log)
+
+var fileNmame = logTime+&quot;.log&quot;
+var filePath = __dirname + &quot;/log/&quot;+fileNmame
+fs.mkdir(__dirname + &quot;/log&quot;,function(err){})
+fs.writeFileSync(filePath, log, { flag: 'a+' })
+
+server.on(&quot;request&quot;, (req, res) =&gt; {
+    const chunk = []
+    req.on(&quot;data&quot;, (data) =&gt; {
+        chunk.push(data)
+    })
+    req.on(&quot;end&quot;, () =&gt; {
+
+        const time = sd.format(new Date(), 'YYYY-MM-DD HH:mm')
+        const header=time+&quot; 第&quot; + runMath + &quot;次请求\n----------------------------------------------------------------------------\n&quot;
+        console.log(header)
+        fs.writeFileSync(filePath, header, { flag: 'a+' })
+        runMath++
+        const data = Buffer.concat(chunk)
+        console.log(data.toString())
+        fs.writeFileSync(filePath, data.toString(), { flag: 'a+' })
+        const footer=&quot;\n----------------------------------------------------------------------------\n&quot;
+        console.log(footer)
+        fs.writeFileSync(filePath, footer, { flag: 'a+' })
+
+        exec('clip').stdin.end(iconv.encode(data.toString(), 'gbk'))
+    })
+
+    res.end('收到了')
+})
+server.listen(18011, () =&gt; {
+    console.log(&quot;server is http://127.0.0.1:18011&quot;)
+    fs.writeFileSync(filePath, &quot;server is http://127.0.0.1:18011\n&quot;, { flag: 'a+' })
+})
+</code></pre>
+<p>启动服务器，会在同目录下创建log文件夹，内生成了每次运行的日志文件。</p>
+<h4 id="实现开机启动">实现开机启动</h4>
+<p>创建一个用来运行服务器的bat脚本</p>
+<pre><code class="language-bat">node 服务器文件位置
+</code></pre>
+<p>在创建一个vbs脚本</p>
+<pre><code class="language-vbs">Set shell = Wscript.createobject(&quot;wscript.shell&quot;)
+
+a = shell.run (&quot;脚本位置.bat&quot;,0)
+</code></pre>
+<p>然后给vbs创建快捷方式，放在<code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup</code>目录下实现开机运行。</p>
+<p>如果想停止运行在任务管理器找到node结束掉就行了。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zerobiubiu.top/tag/windows/" class="tag">
+                    Windows
+                  </a>
+                
+                  <a href="https://zerobiubiu.top/tag/iphone/" class="tag">
+                    iPhone
+                  </a>
+                
+                  <a href="https://zerobiubiu.top/tag/node/" class="tag">
+                    node
+                  </a>
+                
+                  <a href="https://zerobiubiu.top/tag/bark/" class="tag">
+                    bark
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zerobiubiu.top/post/typora-hua-tu/">
+                  <h3 class="post-title">
+                    Typora 画图
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '9e77d87054021bb4dc89',
+        clientSecret: '372ad4757a96a2e749ec8ec58aff1c12d38142ec',
+        repo: 'blogs',
+        owner: 'zerobiubiu',
+        admin: ['zerobiubiu'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

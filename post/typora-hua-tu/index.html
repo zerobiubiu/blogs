@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Typora 画图 | Zerobiubiu</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zerobiubiu.top/favicon.ico?v=1667231042916">
+<link rel="stylesheet" href="https://zerobiubiu.top/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYETLQP793"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QYETLQP793');
+</script>
+
+
+    <meta name="description" content="
+说是画图，但并不像其他专业的绘图软件那样，通过拖拖拽拽一些元素，画出流程图、时序图等。
+Typora 的制图功能是由 Mermaid 强力驱动，如果你使用过 PlantUML，那么 Mermaid 也非常容易上手。
+最大的用途是能轻松的在..." />
+    <meta name="keywords" content="Mermaid,Typora" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zerobiubiu.top">
+        <img src="https://zerobiubiu.top/images/avatar.png?v=1667231042916" class="site-logo">
+        <h1 class="site-title">Zerobiubiu</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs" class="site-nav">
+            🔛 首页
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/archives" class="site-nav">
+            📃 文档
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/tags" class="site-nav">
+            🗃️ 标签
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/you-lian" class="site-nav">
+            🤝 友情链接
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/about" class="site-nav">
+            🔚 关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zerobiubiu" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      这里是Zerobiubiu的博客
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://zerobiubiu.top/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Typora 画图</h2>
+            <div class="post-date">2022-05-10</div>
+            
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.top/post-images/typora-hua-tu.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>说是画图，但并不像其他专业的绘图软件那样，通过拖拖拽拽一些元素，画出流程图、时序图等。<br>
+Typora 的制图功能是由 Mermaid 强力驱动，如果你使用过 PlantUML，那么 Mermaid 也非常容易上手。<br>
+最大的用途是能轻松的在内部生成一个轻量的图，而不需要再去其他软件导出图片。</p>
+</blockquote>
+<!-- more -->
+<h2 id="使用方法">使用方法</h2>
+<p>Typora内置了对Mermaid的支持，Markdown的语法因不同的解析器或编辑器而异，Typora使用的是GitHub Flavored Markdown<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。<br>
+Mermaid 支持绘制非常多种类的图，常见的有时序图、流程图、类图、甘特图等等。<br>
+首先在 Typora 中，输入```mermaid 然后敲击回车，即可初始化一张空白图。</p>
+<h3 id="流程图">流程图</h3>
+<p>语法解释：<code>graph</code>关键字就是声明一张流程图，<code>TD</code>表示的是方向，这里的含义是 Top-Down 由上至下。</p>
+<pre><code class="language-markdown">```mermaid
+graph TD
+    A[Christmas] --&gt;|Get money| B(Go shopping)
+    B --&gt; C{Let me think}
+    C --&gt;|One| D[Laptop]
+    C --&gt;|Two| E[iPhone]
+    C --&gt;|Three| F[fa:fa-car Car]
+```
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.top/post-images/1652196724976.jpg" alt="" loading="lazy"></figure>
+<p><code>LR</code>在这里的含义是 Left-Right 由左至右。</p>
+<pre><code class="language-markdown">```mermaid
+graph LR
+    A[Christmas] --&gt;|Get money| B(Go shopping)
+    B --&gt; C{Let me think}
+    C --&gt;|One| D[Laptop]
+    C --&gt;|Two| E[iPhone]
+    C --&gt;|Three| F[fa:fa-car Car]
+```
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.top/post-images/1652196929955.jpg" alt="" loading="lazy"></figure>
+<h3 id="时序图">时序图</h3>
+<p>语法解释：<code>-&gt;&gt;</code>代表实线箭头，<code>--&gt;&gt;</code>则代表虚线。</p>
+<pre><code class="language-markdown">```mermaid
+sequenceDiagram
+    Alice-&gt;&gt;+John: Hello John, how are you?
+    Alice-&gt;&gt;+John: John, can you hear me?
+    John--&gt;&gt;-Alice: Hi Alice, I can hear you!
+    John--&gt;&gt;-Alice: I feel great!
+```
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.top/post-images/1652197237445.jpg" alt="" loading="lazy"></figure>
+<h3 id="状态图">状态图</h3>
+<p>语法解释：[*] 表示开始或者结束，如果在箭头右边则表示结束。</p>
+<pre><code class="language-markdown">```mermaid
+stateDiagram-v2
+    [*] --&gt; Still
+    Still --&gt; [*]
+    Still --&gt; Moving
+    Moving --&gt; Still
+    Moving --&gt; Crash
+    Crash --&gt; [*]
+```
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.top/post-images/1652197307364.jpg" alt="" loading="lazy"></figure>
+<h3 id="类图">类图</h3>
+<p>语法解释：&lt;|-- 表示继承，+ 表示 public，- 表示 private，学过 Java 的应该都知道。</p>
+<pre><code class="language-markdown">```mermaid
+classDiagram
+    Animal &lt;|-- Duck
+    Animal &lt;|-- Fish
+    Animal &lt;|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+      +String beakColor
+      +swim()
+      +quack()
+    }
+    class Fish{
+      -int sizeInFeet
+      -canEat()
+    }
+    class Zebra{
+      +bool is_wild
+      +run()
+    }
+```
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://zerobiubiu.top/post-images/1652197374799.jpg" alt="" loading="lazy"></figure>
+<h3 id="甘特图">甘特图</h3>
+<p>甘特图一般用来表示项目的计划排期，目前在工作中经常会用到。<br>
+语法也非常简单，从上到下依次是图片标题、日期格式、项目、项目细分的任务。</p>
+<pre><code class="language-markdown">```mermaid
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2014-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2014-01-12  , 12d
+    another task      : 24d
+```
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://zerobiubiu.top/post-images/1652197428957.jpg" alt="" loading="lazy"></figure>
+<h3 id="饼图">饼图</h3>
+<p>饼图使用 pie 表示，标题下面分别是区域名称及其百分比。</p>
+<pre><code class="language-markdown">```mermaid
+pie title Pets adopted by volunteers
+    &quot;Dogs&quot; : 386
+    &quot;Cats&quot; : 85
+    &quot;Rats&quot; : 15
+```
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://zerobiubiu.top/post-images/1652197489246.jpg" alt="" loading="lazy"></figure>
+<h3 id="er图">ER图</h3>
+<pre><code class="language-markdown">```mermaid
+erDiagram
+          CUSTOMER }|..|{ DELIVERY-ADDRESS : has
+          CUSTOMER ||--o{ ORDER : places
+          CUSTOMER ||--o{ INVOICE : &quot;liable for&quot;
+          DELIVERY-ADDRESS ||--o{ ORDER : receives
+          INVOICE ||--|{ ORDER : covers
+          ORDER ||--|{ ORDER-ITEM : includes
+          PRODUCT-CATEGORY ||--|{ PRODUCT : contains
+          PRODUCT ||--o{ ORDER-ITEM : &quot;ordered in&quot;
+```
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://zerobiubiu.top/post-images/1652197548993.jpg" alt="" loading="lazy"></figure>
+<h3 id="用户旅程图">用户旅程图</h3>
+<pre><code class="language-markdown">```mermaid
+  journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 3: Me
+```
+</code></pre>
+<figure data-type="image" tabindex="9"><img src="https://zerobiubiu.top/post-images/1652197641191.jpg" alt="" loading="lazy"></figure>
+<h3 id="git分支图">Git分支图</h3>
+<pre><code class="language-markdown">```mermaid
+    gitGraph
+      commit
+      commit
+      branch develop
+      checkout develop
+      commit
+      commit
+      checkout main
+      merge develop
+      commit
+      commit
+```
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://zerobiubiu.top/post-images/1652197715550.jpg" alt="" loading="lazy"></figure>
+<h2 id="结束">结束</h2>
+<p>Mermaid支持的图目前就这么多，更深入的使用自行了解。</p>
+<p>Mermaid<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> 官方有一个在线的工具<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，可以导出 SVG 和 PNG。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://docs.github.com/cn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github">GitHub Flavored Markdown</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://mermaid-js.github.io/mermaid/#/">mermaid文档</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNpVkE1qw0AMha8itEohvoAXhcZOsgm00Ow8XgiPnBna-WEsU4Ltu3ccE2i1kvS-9xCasAuascRbomjgWisPud6ayiQ7iKOhhaJ4nc8s4ILn-wyH3TnAYEKM1t9eNv6wQlBNlxVjEGP917JJ1cP_7nmGurlQlBDbv8r1J8xwbOyHyfH_FZM4u05NT2VPRUcJKkot7tFxcmR1PntaDQrFsGOFZW419zR-i0Lll4yOUZPwUVsJCUtJI--RRgmfd989542pLeUnuG25_ALXsls9">在线转换图片工具</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zerobiubiu.top/tag/mermaid/" class="tag">
+                    Mermaid
+                  </a>
+                
+                  <a href="https://zerobiubiu.top/tag/typora/" class="tag">
+                    Typora
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zerobiubiu.top/post/debian1010-zhuang-mysql/">
+                  <h3 class="post-title">
+                    Debian10装MySQL
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '9e77d87054021bb4dc89',
+        clientSecret: '372ad4757a96a2e749ec8ec58aff1c12d38142ec',
+        repo: 'blogs',
+        owner: 'zerobiubiu',
+        admin: ['zerobiubiu'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
