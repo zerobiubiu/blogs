@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>搭建Wiki.js的过程 | Zerobiubiu</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zerobiubiu.github.io/blogs//favicon.ico?v=1732259136648">
+<link rel="stylesheet" href="https://zerobiubiu.github.io/blogs//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYETLQP793"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QYETLQP793');
+</script>
+
+
+    <meta name="description" content="
+Wiki.js官网自称最为强大的和可扩展的开源Wiki软件
+可以采用多种方式编写Wiki，支持常用的markdown、HTML等
+
+
+ℹ️ 序
+为了让我写的文档能够方便的访问和查看，之前用docsify生成的静态页面，放在GitHub p..." />
+    <meta name="keywords" content="wiki.js" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zerobiubiu.github.io/blogs/">
+        <img src="https://zerobiubiu.github.io/blogs//images/avatar.png?v=1732259136648" class="site-logo">
+        <h1 class="site-title">Zerobiubiu</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs" class="site-nav">
+            🔛 首页
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/archives" class="site-nav">
+            📃 文档
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/tags" class="site-nav">
+            🗃️ 标签
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/you-lian" class="site-nav">
+            🤝 友情链接
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/about" class="site-nav">
+            🔚 关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zerobiubiu" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      这里是Zerobiubiu的博客
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://zerobiubiu.github.io/blogs//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">搭建Wiki.js的过程</h2>
+            <div class="post-date">2022-05-03</div>
+            
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs//post-images/da-jian-wikijs-de-guo-cheng.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>Wiki.js官网自称最为强大的和可扩展的开源Wiki软件<br>
+可以采用多种方式编写Wiki，支持常用的markdown、HTML等</p>
+</blockquote>
+<!-- more -->
+<h2 id="i️-序">ℹ️ 序</h2>
+<p>为了让我写的文档能够方便的访问和查看，之前用docsify生成的静态页面，放在GitHub pages托管，现在感觉结构太缺乏，不是很能满足现在的需求（心理需求），决定还是切换到Wiki.js了</p>
+<blockquote>
+<p>设备：云服务器1核2G<br>
+系统：Debian10.10<br>
+数据库：MySQL8.0</p>
+</blockquote>
+<h2 id="安装">🆕 安装</h2>
+<blockquote>
+<p>崩溃了，快写完了，保存测试，数据丢了，内容只剩这儿了😭<br>
+2022年5月4日12点48分，重写</p>
+</blockquote>
+<p>进到<a href="https://js.wiki/">官网</a>，右上角点<code>Get Started</code>按钮，选择2.x <code>Setup Instructions</code>，就能看到官方的安装教程，根据系统选择就好。</p>
+<p>Wiki.js支持 MySQL, MariaDB, PostgreSQL, MSSQL、SQLite3数据库<br>
+官方教程用到的是SQLite3，但是我用的MySQL。<br>
+MySQL数据库的配置可以看<a href="../debian1010-zhuang-mysql">这篇</a></p>
+<p>下载官方包，wget，curl都可以。</p>
+<pre><code class="language-bash">wget https://github.com/Requarks/wiki/releases/latest/download/wiki-js.tar.gz
+</code></pre>
+<pre><code class="language-bash">curl https://github.com/Requarks/wiki/releases/latest/download/wiki-js.tar.gz
+</code></pre>
+<p>提取内容</p>
+<pre><code class="language-bash">mkdir wiki
+tar xzf wiki-js.tar.gz -C ./wiki
+cd ./wiki
+</code></pre>
+<p>内置一个配置模板，拿来用就好</p>
+<pre><code class="language-bash">mv config.sample.yml config.yml
+</code></pre>
+<p>更改配置文件：用编辑器打开，我习惯VIM</p>
+<pre><code class="language-bash">vim config.yml
+</code></pre>
+<p>进去只需要注意几个关键配置，其他的不需要在意。<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651640483333.PNG" alt="" loading="lazy"></p>
+<ol>
+<li>port：这是服务器启动的端口</li>
+<li>db：
+<ol>
+<li>type：数据库类型，我用的MySQL，可自行选择，</li>
+<li>host：服务器的地址，本机的话127.0.0.1或者localhost</li>
+<li>port：数据库的端口，MySQL默认3306</li>
+<li>user：数据库用户，没什么注意的话就填root</li>
+<li>pass：数据库用户密码</li>
+<li>db：数据库名，一定要提前创建好，不然启动会出错。
+<blockquote>
+<p>创建数据库的命令<code>CREATE DATABASE 数据库名;</code></p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="启动">⏯ 启动</h2>
+<p>Wiki.js是基于Node.js开发的，启动要用到 Node.js10.12 以上，推荐用最新的LTS版本就好，v16LTS可以启动，但是v18启动会报错。</p>
+<p>Node.js安装、版本管理可以通过NVM工具，NVM的操作可以看<a href="http://zerobiubiu.top/zh/NVM">我的Wiki-NVM</a></p>
+<p>做好上边的配置就可以启动了，启动命令</p>
+<pre><code class="language-bash">node server
+</code></pre>
+<p>出现这个界面就代表成功了，访问你的IP加你设置的端口就可以访问了<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651641842713.PNG" alt="" loading="lazy"></p>
+<p>但是，启动后会占用掉终端，尤其是SSH连接欸，一旦断开服务器就停止运行了，所以要采取办法让他在后台保持运行</p>
+<p>nohup，将程序以忽略挂起信号的方式运行起来</p>
+<pre><code class="language-bash">nohub node server &amp;
+</code></pre>
+<p>服务器就会在后台运行，同时将执行日志输出到nohup.out的文件中，除非另外指定了输出文件</p>
+<pre><code class="language-bash">nohup node server &gt; your_out.file 2&gt;&amp;1 &amp;
+</code></pre>
+<p>当我们不想用的时候，可以杀掉程序进程</p>
+<ol>
+<li>查看进程：<pre><code class="language-bash">ps -ef | grep &quot;node server&quot;
+</code></pre>
+</li>
+<li>杀死进程<pre><code class="language-bash">kill -9 查看进程查到的pid
+</code></pre>
+</li>
+</ol>
+<p>至此，安装结束</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/wikijs/" class="tag">
+                    wiki.js
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zerobiubiu.github.io/blogs/post/vs-code-zhong-kai-qi-cascadia-code-zi-ti-lian-zi/">
+                  <h3 class="post-title">
+                    VS code中开启Cascadia Code字体连字
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '9e77d87054021bb4dc89',
+        clientSecret: '372ad4757a96a2e749ec8ec58aff1c12d38142ec',
+        repo: 'blogs',
+        owner: 'zerobiubiu',
+        admin: ['zerobiubiu'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

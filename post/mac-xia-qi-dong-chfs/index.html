@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Mac下启动chfs | Zerobiubiu</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zerobiubiu.github.io/blogs//favicon.ico?v=1732259136648">
+<link rel="stylesheet" href="https://zerobiubiu.github.io/blogs//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYETLQP793"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QYETLQP793');
+</script>
+
+
+    <meta name="description" content="
+本方法适用于 Linux 和 Mac
+
+由于macOS下的chfs没有像Windows一样的GUI可以挂在后台，所以只能去终端用命令去打开chfs，但是退出终端的同时也会带着chfs一起退出，所以用screen来在后台保持运行，不用因为退..." />
+    <meta name="keywords" content="mac,screen,chfs" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zerobiubiu.github.io/blogs/">
+        <img src="https://zerobiubiu.github.io/blogs//images/avatar.png?v=1732259136648" class="site-logo">
+        <h1 class="site-title">Zerobiubiu</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs" class="site-nav">
+            🔛 首页
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/archives" class="site-nav">
+            📃 文档
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/tags" class="site-nav">
+            🗃️ 标签
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/you-lian" class="site-nav">
+            🤝 友情链接
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/about" class="site-nav">
+            🔚 关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zerobiubiu" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      这里是Zerobiubiu的博客
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://zerobiubiu.github.io/blogs//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Mac下启动chfs</h2>
+            <div class="post-date">2022-10-06</div>
+            
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs//post-images/mac-xia-qi-dong-chfs.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>本方法适用于 Linux 和 Mac</p>
+</blockquote>
+<p>由于macOS下的chfs没有像Windows一样的GUI可以挂在后台，所以只能去终端用命令去打开chfs，但是退出终端的同时也会带着chfs一起退出，所以用screen来在后台保持运行，不用因为退出终端而导致退出。</p>
+<!-- more -->
+<h2 id="教程">教程</h2>
+<p>下载内容：</p>
+<ol>
+<li><a href="http://iscute.cn/chfs">chfs</a></li>
+<li><a href="https://www.gnu.org/software/screen/">screen</a></li>
+</ol>
+<h3 id="chfs-的使用">chfs 的使用</h3>
+<p>把 chfs 执行文件放在确定的位置（拟定在 <code>~/</code> 目录下），使用 <code>～/chfs</code> 即可运行，但是由于未配置，他会默认读取 <code>~/</code> 目录，使用80端口，匿名用户可以使用 <strong>读写删</strong> 权限，所以要对启动做出一定配置。</p>
+<pre><code class="language-sh">~/chfs --path=&quot;/Users/wang/PublicFiles&quot; --port=8080 --rule=&quot;::r|testUser:passwd:rwd&quot;
+</code></pre>
+<p>最常用的三个配置参数：</p>
+<p><code>--path=&quot;目录1|目录2|&quot;目录 3&quot;&quot;</code><br>
+要共享的目录，如果需要共享多个目录，则用 <code>|</code> 符号隔开。<br>
+<strong>注意：如果路径带有空格，则需要将整个路径用引号包住。</strong></p>
+<p><code>--port=端口号</code><br>
+如果不做配置，默认使用80端口。<br>
+<strong>没有特殊需求，一般采用80端口最为合适。</strong></p>
+<p><code>--rule=&quot;用户配置&quot;</code><br>
+配置格式为 <code>用户名:密码:权限</code> ，匿名用户不需要填写用户和密码即可，权限分为 <code>r-读，w-写，d-删除</code> 需要那个只需要在权限后写下字母即可，不写权限即为不可访问。使用 <code>|</code> 符号分隔用户。</p>
+<p>更加详细的使用请查看<a href="http://iscute.cn/chfs">官方说明</a></p>
+<h3 id="screen-的使用">screen 的使用</h3>
+<blockquote>
+<p>Mac 默认自带了screen，如果你没有自带推荐先去安装 <a href="https://brew.sh/">homebrew</a> 包管理器来安装screen， 其他平台也同理去包管理器去安装，如果没有可以去上边的官网去查看。</p>
+</blockquote>
+<p><a href="https://www.gnu.org/software/screen/manual/screen.html">详细文档</a></p>
+<h3 id="基础用法">基础用法</h3>
+<p>新建screen终端 <code>screen -S 名字</code></p>
+<p>重连 <code>screen -r 会话ID</code></p>
+<p>显示存在终端 <code>screen -ls</code></p>
+<p>删除终端 <code>screen -XS &quot;会话id或者名称&quot; quit</code></p>
+<p>退出当前screen终端，但不影响运行 <code>CTRL+D</code></p>
+<h2 id="使用过程">使用过程</h2>
+<ol>
+<li>使用 <code>screen -S 名字</code> 来新建一个screen终端区</li>
+<li>在这个新终端内执行 chfs 启动命令即可</li>
+<li>再去退出或者关闭终端就不影响程序的运行了</li>
+</ol>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/mac/" class="tag">
+                    mac
+                  </a>
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/screen/" class="tag">
+                    screen
+                  </a>
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/chfs/" class="tag">
+                    chfs
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zerobiubiu.github.io/blogs/post/shi-xian-windows-he-iphone-hu-fa-wen-ben/">
+                  <h3 class="post-title">
+                    实现Windows和iPhone互发文本
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '9e77d87054021bb4dc89',
+        clientSecret: '372ad4757a96a2e749ec8ec58aff1c12d38142ec',
+        repo: 'blogs',
+        owner: 'zerobiubiu',
+        admin: ['zerobiubiu'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

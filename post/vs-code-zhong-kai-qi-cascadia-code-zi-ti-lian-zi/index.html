@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>VS code中开启Cascadia Code字体连字 | Zerobiubiu</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zerobiubiu.github.io/blogs//favicon.ico?v=1732259136648">
+<link rel="stylesheet" href="https://zerobiubiu.github.io/blogs//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYETLQP793"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QYETLQP793');
+</script>
+
+
+    <meta name="description" content="
+微软推出的一个程序员友好的字体，观感还行。有意思的是可以开启连字
+
+
+安装字体
+去cascadia-code下载字体，安装下载的发行安装包里的otf或者ttf的字体就可以。
+配置
+打开vs code的设置，转到 json 配置，有&quo..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zerobiubiu.github.io/blogs/">
+        <img src="https://zerobiubiu.github.io/blogs//images/avatar.png?v=1732259136648" class="site-logo">
+        <h1 class="site-title">Zerobiubiu</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs" class="site-nav">
+            🔛 首页
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/archives" class="site-nav">
+            📃 文档
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/tags" class="site-nav">
+            🗃️ 标签
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/you-lian" class="site-nav">
+            🤝 友情链接
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/about" class="site-nav">
+            🔚 关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zerobiubiu" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      这里是Zerobiubiu的博客
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://zerobiubiu.github.io/blogs//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">VS code中开启Cascadia Code字体连字</h2>
+            <div class="post-date">2022-05-02</div>
+            
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs//post-images/vs-code-zhong-kai-qi-cascadia-code-zi-ti-lian-zi.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>微软推出的一个程序员友好的字体，观感还行。有意思的是可以开启连字</p>
+</blockquote>
+<!-- more -->
+<h2 id="安装字体">安装字体</h2>
+<p>去<a href="https://github.com/microsoft/cascadia-code">cascadia-code</a>下载字体，安装下载的发行安装包里的otf或者ttf的字体就可以。</p>
+<h2 id="配置">配置</h2>
+<p>打开vs code的设置，转到 json 配置，有<code>&quot;editor.fontFamily&quot;</code>配置项的话内容改成<code>&quot;Cascadia Code Regular&quot;</code><br>
+这是更改字体，开启连字只需要把<code>&quot;editor.fontLigatures&quot;</code>改成<code>true</code>就行。<br>
+没有这两项配置的话添加上就行。</p>
+<p>改好效果应该就和封面一样了，对很多这种连字符展示更形象，具体有多少种自己试试就知道了。</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zerobiubiu.github.io/blogs/post/gridea-bo-ke-kai-qi-gitalk-ping-lun/">
+                  <h3 class="post-title">
+                    Gridea博客开启Gitalk评论
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '9e77d87054021bb4dc89',
+        clientSecret: '372ad4757a96a2e749ec8ec58aff1c12d38142ec',
+        repo: 'blogs',
+        owner: 'zerobiubiu',
+        admin: ['zerobiubiu'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

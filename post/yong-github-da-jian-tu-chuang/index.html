@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>使用PicGo+GitHub搭建图床 | Zerobiubiu</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zerobiubiu.github.io/blogs//favicon.ico?v=1732259136648">
+<link rel="stylesheet" href="https://zerobiubiu.github.io/blogs//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYETLQP793"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QYETLQP793');
+</script>
+
+
+    <meta name="description" content="写Markdown文档需要插入图片，转换为HTML放在Github Pages的时候不想在同一仓库放置图片，搭建个图床统一存放图片
+
+0️⃣ 创建Github仓库
+🆕 访问Github主页，New一个新仓库，注册Github账号就不再赘述..." />
+    <meta name="keywords" content="GitHub,PicGo,图床" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zerobiubiu.github.io/blogs/">
+        <img src="https://zerobiubiu.github.io/blogs//images/avatar.png?v=1732259136648" class="site-logo">
+        <h1 class="site-title">Zerobiubiu</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs" class="site-nav">
+            🔛 首页
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/archives" class="site-nav">
+            📃 文档
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/tags" class="site-nav">
+            🗃️ 标签
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/you-lian" class="site-nav">
+            🤝 友情链接
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/about" class="site-nav">
+            🔚 关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zerobiubiu" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      这里是Zerobiubiu的博客
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://zerobiubiu.github.io/blogs//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">使用PicGo+GitHub搭建图床</h2>
+            <div class="post-date">2022-04-30</div>
+            
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs//post-images/yong-github-da-jian-tu-chuang.PNG')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>写Markdown文档需要插入图片，转换为HTML放在Github Pages的时候不想在同一仓库放置图片，搭建个图床统一存放图片</p>
+<!-- more -->
+<h2 id="0️⃣-创建github仓库">0️⃣ 创建Github仓库</h2>
+<p>🆕 访问<a href="https://github.com/">Github</a>主页，New一个新仓库，注册Github账号就不再赘述了</p>
+<p>填写仓库信息，这里注意仓库得设置为 <code>Public</code> 因为后面通过客户端访问算是外部访问，因此无法访问 <code>Private</code> 这样的话图片传上来之后只能存储不能显示，所以要设置为 Public。</p>
+<blockquote>
+<p>采用GitHub的优点就是免费、稳定，但是缺点也很致命，就是存图片的仓库是公开的，没啥隐私，当然本来就是为了公开访问的图床也无所谓了，毕竟本来就是为了做公开的服务用的；再者就是访问速度了，在国区毕竟DDDD的原因，访问速度受限，不过挂上CDN完全不是问题。</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs//post-images/1651282834115.PNG" alt="" loading="lazy"></figure>
+<p>🆙 创建好了仓库，为了访问仓库权限，再去创建一个<code>Token</code></p>
+<p>进入Github的设置</p>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs//post-images/1651283348612.PNG" alt="" loading="lazy"></figure>
+<p>划到下边左侧选择<code>Developer setting</code></p>
+<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.github.io/blogs//post-images/1651283426509.PNG" alt="" loading="lazy"></figure>
+<p>进入二级页面，选择<code>Personal access tokens</code><br>
+点<code>Generate new token</code>创建一个新的<code>Token</code><br>
+接着会让你输入密码验证自己，进入创建页面</p>
+<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.github.io/blogs//post-images/1651283823527.png" alt="" loading="lazy"></figure>
+<p><code>Note</code>是你这个<code>Token</code>的备注，随自己写，一般是记录这个<code>Token</code>的作用<br>
+<code>Expiration</code>是这个<code>Token</code>的可用期限，官方是推荐设置一个时间期限，不过我一般都是选择无期限，毕竟嫌麻烦。<br>
+<code>Select scopes</code>是权限控制，本次我们只需要选择<code>repo</code>就够了，权限大家自己判断。</p>
+<figure data-type="image" tabindex="5"><img src="https://zerobiubiu.github.io/blogs//post-images/1651284114613.png" alt="" loading="lazy"></figure>
+<p>划到底点<code>Generate token</code>创建。</p>
+<figure data-type="image" tabindex="6"><img src="https://zerobiubiu.github.io/blogs//post-images/1651284304755.PNG" alt="" loading="lazy"></figure>
+<p><code>Token</code>只会在创建完毕出现，<mark>务必复制保存</mark>，不然你只能重新创建了。</p>
+<p>🆗 到这仓库就创建完毕。</p>
+<h2 id="1️⃣-配置picgo">1️⃣ 配置PicGo</h2>
+<p>PicGo的优点我就不介绍了，一个图床上传的工具而已，选什么自己开心就好😁</p>
+<p>🆒 先去官网下载<a href="https://molunerfinn.com/PicGo/">PicGo</a>，不过他是在Github发行的版本，下载可能会比较慢，可以考虑<a href="https://mirrors.sdu.edu.cn/github-release/Molunerfinn_PicGo/">山东大学镜像站的镜像</a>。</p>
+<p>🆙 安装很简单，就跳过了，直接开始配置</p>
+<p>进入软件第一个是上传区，先不管，直接点图床设置——Github图床设置</p>
+<figure data-type="image" tabindex="7"><img src="https://zerobiubiu.github.io/blogs//post-images/1651285782445.PNG" alt="" loading="lazy"></figure>
+<p>设置仓库名：你的Github名/你创建的仓库名<br>
+设定分支：一般默认是<code>master</code>，不过GitHub修改了，他现在的默认一般是<code>main</code>，这里我们填<code>main</code><br>
+设定Token：刚刚我们创建的<code>Token</code>粘贴在这里就可以了<br>
+指定存储路径：这个就随意了，一般这个仓库都是存图床，可以不填<br>
+设定自定义域名：可以不设，直连GitHub，不过为了加速这里采用<a href="cdn.jsdelivr.net">JSDELIVR</a>来加速。填<code>https://cdn.jsdelivr.net/gh/用户名/仓库/</code></p>
+<p>设置好点确定和设为默认图床。</p>
+<p>🆗 点回上传区，随便将一个图片拖进去测试，上传成功会自动复制返回链接，可以在上传区调整返回链接的格式。</p>
+<h2 id="结束">🔚 结束</h2>
+<p>完成上述操作后，就可以正常使用了，软件的其他操作去PicGo设置去调整就好，推荐打开时间戳重命名，避免文件名重复照成的错误，打开开机启动省去打开的步骤，开机即用。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/github/" class="tag">
+                    GitHub
+                  </a>
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/picgo/" class="tag">
+                    PicGo
+                  </a>
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/tu-chuang/" class="tag">
+                    图床
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zerobiubiu.github.io/blogs/post/gridea-shi-yong-wen-ti/">
+                  <h3 class="post-title">
+                    Gridea使用问题
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '9e77d87054021bb4dc89',
+        clientSecret: '372ad4757a96a2e749ec8ec58aff1c12d38142ec',
+        repo: 'blogs',
+        owner: 'zerobiubiu',
+        admin: ['zerobiubiu'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

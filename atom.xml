@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zerobiubiu.github.io/blogs/</id>
+    <title>Zerobiubiu</title>
+    <updated>2024-11-22T07:05:56.089Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://zerobiubiu.github.io/blogs/"/>
+    <link rel="self" href="https://zerobiubiu.github.io/blogs/atom.xml"/>
+    <subtitle>这里是Zerobiubiu的博客</subtitle>
+    <logo>https://zerobiubiu.github.io/blogs/images/avatar.png</logo>
+    <icon>https://zerobiubiu.github.io/blogs/favicon.ico</icon>
+    <rights>All rights reserved 2024, Zerobiubiu</rights>
+    <entry>
+        <title type="html"><![CDATA[Mac下启动chfs]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/mac-xia-qi-dong-chfs/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/mac-xia-qi-dong-chfs/">
+        </link>
+        <updated>2022-10-06T14:08:34.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>本方法适用于 Linux 和 Mac</p>
+</blockquote>
+<p>由于macOS下的chfs没有像Windows一样的GUI可以挂在后台，所以只能去终端用命令去打开chfs，但是退出终端的同时也会带着chfs一起退出，所以用screen来在后台保持运行，不用因为退出终端而导致退出。</p>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>本方法适用于 Linux 和 Mac</p>
+</blockquote>
+<p>由于macOS下的chfs没有像Windows一样的GUI可以挂在后台，所以只能去终端用命令去打开chfs，但是退出终端的同时也会带着chfs一起退出，所以用screen来在后台保持运行，不用因为退出终端而导致退出。</p>
+<!-- more -->
+<h2 id="教程">教程</h2>
+<p>下载内容：</p>
+<ol>
+<li><a href="http://iscute.cn/chfs">chfs</a></li>
+<li><a href="https://www.gnu.org/software/screen/">screen</a></li>
+</ol>
+<h3 id="chfs-的使用">chfs 的使用</h3>
+<p>把 chfs 执行文件放在确定的位置（拟定在 <code>~/</code> 目录下），使用 <code>～/chfs</code> 即可运行，但是由于未配置，他会默认读取 <code>~/</code> 目录，使用80端口，匿名用户可以使用 <strong>读写删</strong> 权限，所以要对启动做出一定配置。</p>
+<pre><code class="language-sh">~/chfs --path=&quot;/Users/wang/PublicFiles&quot; --port=8080 --rule=&quot;::r|testUser:passwd:rwd&quot;
+</code></pre>
+<p>最常用的三个配置参数：</p>
+<p><code>--path=&quot;目录1|目录2|&quot;目录 3&quot;&quot;</code><br>
+要共享的目录，如果需要共享多个目录，则用 <code>|</code> 符号隔开。<br>
+<strong>注意：如果路径带有空格，则需要将整个路径用引号包住。</strong></p>
+<p><code>--port=端口号</code><br>
+如果不做配置，默认使用80端口。<br>
+<strong>没有特殊需求，一般采用80端口最为合适。</strong></p>
+<p><code>--rule=&quot;用户配置&quot;</code><br>
+配置格式为 <code>用户名:密码:权限</code> ，匿名用户不需要填写用户和密码即可，权限分为 <code>r-读，w-写，d-删除</code> 需要那个只需要在权限后写下字母即可，不写权限即为不可访问。使用 <code>|</code> 符号分隔用户。</p>
+<p>更加详细的使用请查看<a href="http://iscute.cn/chfs">官方说明</a></p>
+<h3 id="screen-的使用">screen 的使用</h3>
+<blockquote>
+<p>Mac 默认自带了screen，如果你没有自带推荐先去安装 <a href="https://brew.sh/">homebrew</a> 包管理器来安装screen， 其他平台也同理去包管理器去安装，如果没有可以去上边的官网去查看。</p>
+</blockquote>
+<p><a href="https://www.gnu.org/software/screen/manual/screen.html">详细文档</a></p>
+<h3 id="基础用法">基础用法</h3>
+<p>新建screen终端 <code>screen -S 名字</code></p>
+<p>重连 <code>screen -r 会话ID</code></p>
+<p>显示存在终端 <code>screen -ls</code></p>
+<p>删除终端 <code>screen -XS &quot;会话id或者名称&quot; quit</code></p>
+<p>退出当前screen终端，但不影响运行 <code>CTRL+D</code></p>
+<h2 id="使用过程">使用过程</h2>
+<ol>
+<li>使用 <code>screen -S 名字</code> 来新建一个screen终端区</li>
+<li>在这个新终端内执行 chfs 启动命令即可</li>
+<li>再去退出或者关闭终端就不影响程序的运行了</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[实现Windows和iPhone互发文本]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/shi-xian-windows-he-iphone-hu-fa-wen-ben/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/shi-xian-windows-he-iphone-hu-fa-wen-ben/">
+        </link>
+        <updated>2022-06-13T12:30:28.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>通过Windows以通知形式发送到iPhone文本，iPhone发送到Windows自动复制来实现类似共享剪贴板</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>通过Windows以通知形式发送到iPhone文本，iPhone发送到Windows自动复制来实现类似共享剪贴板</p>
+</blockquote>
+<!-- more -->
+<h2 id="事由">事由</h2>
+<p>由于不可抗力，iPhone始终无法和Windows实现共享剪贴板，导致了传输文本成了一件麻烦事，只好自己去实现一个还算方便的形式。</p>
+<h2 id="实现方式">实现方式</h2>
+<h3 id="windows发送到iphone">Windows发送到iPhone</h3>
+<p>iPhone下载Bark即可实现自由自定义通知。</p>
+<p>只需要根据要求发送get请求就可以实现推送到通知到iPhone。</p>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs//post-images/1655125336195.png" alt="" loading="lazy"></figure>
+<p>在Chrome浏览器可以直接去商店找到bark插件，配置好路径就能点击就发送到手机。</p>
+<p><a href="https://chrome.google.com/webstore/detail/bark/pmlkbdbpglkgbgopghdcmohdcmladeii">Bark - Chrome 网上应用店 (google.com)</a></p>
+<p>或者通过Quicker动作发送复制内容。</p>
+<p><a href="https://getquicker.net/Sharedaction?code=e927d844-d212-4428-758d-08d69de12a3b">发送到iPhone - 动作信息 - Quicker (getquicker.net)</a></p>
+<p>我也尝试实现了图形化，采用易语言写了图形界面，但是由于编码有问题，就放弃了。转向用C++实现了一个程序，添加Path环境变量，即可实现Shell命令，或者配合上Power Toys的Power Toys Run即可实现编辑内容后发布。<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1655126088120.PNG" alt="" loading="lazy"></p>
+<p>不过在Power Toys Run有BUG，附带中文就不能正确引导，更多的是放在Shell环境下可以使用。</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;stdlib.h&gt;
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    string content = argv[1];
+    content.erase(0, 1);
+    string url = &quot;替换成自己的URL&quot; + content;
+    string curl = &quot;curl &quot;+ url;
+    system(curl.c_str());
+
+    return 0;
+}
+</code></pre>
+<p>依赖：</p>
+<ul>
+<li>Curl</li>
+</ul>
+<p>为了实现简单的get请求，而不是再去写复杂的GET实现，直接调用Shell环境，用Curl发送GET请求，导致必须依赖Curl，以及运行时必然会闪过Shell页面。</p>
+<blockquote>
+<p>技术不达标，未能实现复制自动发送。</p>
+<p>由于iOS14.5之后不能自动复制通知，也比较遗憾在iPhone端也不能自动复制。</p>
+</blockquote>
+<h2 id="iphone发送到windows">iPhone发送到Windows</h2>
+<p>用node实现一个简单的http服务器，配合Apple 快捷指令，发送PUT请求，即可将内容发送到Windows并实现自动复制。</p>
+<h3 id="快捷指令">快捷指令</h3>
+<blockquote>
+<p>记得将快捷指令内的URL改成自己服务器的。</p>
+</blockquote>
+<p><a href="https://www.icloud.com/shortcuts/842a0b44ca0648f98cbda206fe05b806">发送剪贴板文本</a></p>
+<p><a href="https://www.icloud.com/shortcuts/35aa7db23b6e44f988d2bbdcc38c876f">扫描二维码内容发送</a></p>
+<h3 id="服务器">服务器</h3>
+<p>添加依赖</p>
+<pre><code class="language-shell">npm install http iconv-lite child_process silly-datetime
+</code></pre>
+<p>服务器代码：</p>
+<pre><code class="language-javascript">#!node
+
+const { exec } = require('child_process')
+const sd = require('silly-datetime')
+const iconv = require('iconv-lite')
+const http = require(&quot;http&quot;)
+const fs = require('fs')
+
+var runMath = 1
+
+const server = http.createServer()
+const time = sd.format(new Date(), 'YYYY-MM-DD HH:mm')
+const logTime = sd.format(new Date(), 'YYYY-MM-DD HH.mm')
+const log = `服务器启动时间：${time}\n`
+
+console.log(log)
+
+var fileNmame = logTime+&quot;.log&quot;
+var filePath = __dirname + &quot;/log/&quot;+fileNmame
+fs.mkdir(__dirname + &quot;/log&quot;,function(err){})
+fs.writeFileSync(filePath, log, { flag: 'a+' })
+
+server.on(&quot;request&quot;, (req, res) =&gt; {
+    const chunk = []
+    req.on(&quot;data&quot;, (data) =&gt; {
+        chunk.push(data)
+    })
+    req.on(&quot;end&quot;, () =&gt; {
+
+        const time = sd.format(new Date(), 'YYYY-MM-DD HH:mm')
+        const header=time+&quot; 第&quot; + runMath + &quot;次请求\n----------------------------------------------------------------------------\n&quot;
+        console.log(header)
+        fs.writeFileSync(filePath, header, { flag: 'a+' })
+        runMath++
+        const data = Buffer.concat(chunk)
+        console.log(data.toString())
+        fs.writeFileSync(filePath, data.toString(), { flag: 'a+' })
+        const footer=&quot;\n----------------------------------------------------------------------------\n&quot;
+        console.log(footer)
+        fs.writeFileSync(filePath, footer, { flag: 'a+' })
+
+        exec('clip').stdin.end(iconv.encode(data.toString(), 'gbk'))
+    })
+
+    res.end('收到了')
+})
+server.listen(18011, () =&gt; {
+    console.log(&quot;server is http://127.0.0.1:18011&quot;)
+    fs.writeFileSync(filePath, &quot;server is http://127.0.0.1:18011\n&quot;, { flag: 'a+' })
+})
+</code></pre>
+<p>启动服务器，会在同目录下创建log文件夹，内生成了每次运行的日志文件。</p>
+<h4 id="实现开机启动">实现开机启动</h4>
+<p>创建一个用来运行服务器的bat脚本</p>
+<pre><code class="language-bat">node 服务器文件位置
+</code></pre>
+<p>在创建一个vbs脚本</p>
+<pre><code class="language-vbs">Set shell = Wscript.createobject(&quot;wscript.shell&quot;)
+
+a = shell.run (&quot;脚本位置.bat&quot;,0)
+</code></pre>
+<p>然后给vbs创建快捷方式，放在<code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup</code>目录下实现开机运行。</p>
+<p>如果想停止运行在任务管理器找到node结束掉就行了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Typora 画图]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/typora-hua-tu/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/typora-hua-tu/">
+        </link>
+        <updated>2022-05-10T10:43:56.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>说是画图，但并不像其他专业的绘图软件那样，通过拖拖拽拽一些元素，画出流程图、时序图等。<br>
+Typora 的制图功能是由 Mermaid 强力驱动，如果你使用过 PlantUML，那么 Mermaid 也非常容易上手。<br>
+最大的用途是能轻松的在内部生成一个轻量的图，而不需要再去其他软件导出图片。</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>说是画图，但并不像其他专业的绘图软件那样，通过拖拖拽拽一些元素，画出流程图、时序图等。<br>
+Typora 的制图功能是由 Mermaid 强力驱动，如果你使用过 PlantUML，那么 Mermaid 也非常容易上手。<br>
+最大的用途是能轻松的在内部生成一个轻量的图，而不需要再去其他软件导出图片。</p>
+</blockquote>
+<!-- more -->
+<h2 id="使用方法">使用方法</h2>
+<p>Typora内置了对Mermaid的支持，Markdown的语法因不同的解析器或编辑器而异，Typora使用的是GitHub Flavored Markdown<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。<br>
+Mermaid 支持绘制非常多种类的图，常见的有时序图、流程图、类图、甘特图等等。<br>
+首先在 Typora 中，输入```mermaid 然后敲击回车，即可初始化一张空白图。</p>
+<h3 id="流程图">流程图</h3>
+<p>语法解释：<code>graph</code>关键字就是声明一张流程图，<code>TD</code>表示的是方向，这里的含义是 Top-Down 由上至下。</p>
+<pre><code class="language-markdown">```mermaid
+graph TD
+    A[Christmas] --&gt;|Get money| B(Go shopping)
+    B --&gt; C{Let me think}
+    C --&gt;|One| D[Laptop]
+    C --&gt;|Two| E[iPhone]
+    C --&gt;|Three| F[fa:fa-car Car]
+```
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs//post-images/1652196724976.jpg" alt="" loading="lazy"></figure>
+<p><code>LR</code>在这里的含义是 Left-Right 由左至右。</p>
+<pre><code class="language-markdown">```mermaid
+graph LR
+    A[Christmas] --&gt;|Get money| B(Go shopping)
+    B --&gt; C{Let me think}
+    C --&gt;|One| D[Laptop]
+    C --&gt;|Two| E[iPhone]
+    C --&gt;|Three| F[fa:fa-car Car]
+```
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs//post-images/1652196929955.jpg" alt="" loading="lazy"></figure>
+<h3 id="时序图">时序图</h3>
+<p>语法解释：<code>-&gt;&gt;</code>代表实线箭头，<code>--&gt;&gt;</code>则代表虚线。</p>
+<pre><code class="language-markdown">```mermaid
+sequenceDiagram
+    Alice-&gt;&gt;+John: Hello John, how are you?
+    Alice-&gt;&gt;+John: John, can you hear me?
+    John--&gt;&gt;-Alice: Hi Alice, I can hear you!
+    John--&gt;&gt;-Alice: I feel great!
+```
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.github.io/blogs//post-images/1652197237445.jpg" alt="" loading="lazy"></figure>
+<h3 id="状态图">状态图</h3>
+<p>语法解释：[*] 表示开始或者结束，如果在箭头右边则表示结束。</p>
+<pre><code class="language-markdown">```mermaid
+stateDiagram-v2
+    [*] --&gt; Still
+    Still --&gt; [*]
+    Still --&gt; Moving
+    Moving --&gt; Still
+    Moving --&gt; Crash
+    Crash --&gt; [*]
+```
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.github.io/blogs//post-images/1652197307364.jpg" alt="" loading="lazy"></figure>
+<h3 id="类图">类图</h3>
+<p>语法解释：&lt;|-- 表示继承，+ 表示 public，- 表示 private，学过 Java 的应该都知道。</p>
+<pre><code class="language-markdown">```mermaid
+classDiagram
+    Animal &lt;|-- Duck
+    Animal &lt;|-- Fish
+    Animal &lt;|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+      +String beakColor
+      +swim()
+      +quack()
+    }
+    class Fish{
+      -int sizeInFeet
+      -canEat()
+    }
+    class Zebra{
+      +bool is_wild
+      +run()
+    }
+```
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://zerobiubiu.github.io/blogs//post-images/1652197374799.jpg" alt="" loading="lazy"></figure>
+<h3 id="甘特图">甘特图</h3>
+<p>甘特图一般用来表示项目的计划排期，目前在工作中经常会用到。<br>
+语法也非常简单，从上到下依次是图片标题、日期格式、项目、项目细分的任务。</p>
+<pre><code class="language-markdown">```mermaid
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2014-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2014-01-12  , 12d
+    another task      : 24d
+```
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://zerobiubiu.github.io/blogs//post-images/1652197428957.jpg" alt="" loading="lazy"></figure>
+<h3 id="饼图">饼图</h3>
+<p>饼图使用 pie 表示，标题下面分别是区域名称及其百分比。</p>
+<pre><code class="language-markdown">```mermaid
+pie title Pets adopted by volunteers
+    &quot;Dogs&quot; : 386
+    &quot;Cats&quot; : 85
+    &quot;Rats&quot; : 15
+```
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://zerobiubiu.github.io/blogs//post-images/1652197489246.jpg" alt="" loading="lazy"></figure>
+<h3 id="er图">ER图</h3>
+<pre><code class="language-markdown">```mermaid
+erDiagram
+          CUSTOMER }|..|{ DELIVERY-ADDRESS : has
+          CUSTOMER ||--o{ ORDER : places
+          CUSTOMER ||--o{ INVOICE : &quot;liable for&quot;
+          DELIVERY-ADDRESS ||--o{ ORDER : receives
+          INVOICE ||--|{ ORDER : covers
+          ORDER ||--|{ ORDER-ITEM : includes
+          PRODUCT-CATEGORY ||--|{ PRODUCT : contains
+          PRODUCT ||--o{ ORDER-ITEM : &quot;ordered in&quot;
+```
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://zerobiubiu.github.io/blogs//post-images/1652197548993.jpg" alt="" loading="lazy"></figure>
+<h3 id="用户旅程图">用户旅程图</h3>
+<pre><code class="language-markdown">```mermaid
+  journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 3: Me
+```
+</code></pre>
+<figure data-type="image" tabindex="9"><img src="https://zerobiubiu.github.io/blogs//post-images/1652197641191.jpg" alt="" loading="lazy"></figure>
+<h3 id="git分支图">Git分支图</h3>
+<pre><code class="language-markdown">```mermaid
+    gitGraph
+      commit
+      commit
+      branch develop
+      checkout develop
+      commit
+      commit
+      checkout main
+      merge develop
+      commit
+      commit
+```
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://zerobiubiu.github.io/blogs//post-images/1652197715550.jpg" alt="" loading="lazy"></figure>
+<h2 id="结束">结束</h2>
+<p>Mermaid支持的图目前就这么多，更深入的使用自行了解。</p>
+<p>Mermaid<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> 官方有一个在线的工具<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，可以导出 SVG 和 PNG。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://docs.github.com/cn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github">GitHub Flavored Markdown</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://mermaid-js.github.io/mermaid/#/">mermaid文档</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNpVkE1qw0AMha8itEohvoAXhcZOsgm00Ow8XgiPnBna-WEsU4Ltu3ccE2i1kvS-9xCasAuascRbomjgWisPud6ayiQ7iKOhhaJ4nc8s4ILn-wyH3TnAYEKM1t9eNv6wQlBNlxVjEGP917JJ1cP_7nmGurlQlBDbv8r1J8xwbOyHyfH_FZM4u05NT2VPRUcJKkot7tFxcmR1PntaDQrFsGOFZW419zR-i0Lll4yOUZPwUVsJCUtJI--RRgmfd989542pLeUnuG25_ALXsls9">在线转换图片工具</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Debian10装MySQL]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/debian1010-zhuang-mysql/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/debian1010-zhuang-mysql/">
+        </link>
+        <updated>2022-05-03T15:42:34.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>在Debian 10 的默认软件源中并不包含 MySQL 软件包，它已被 MariaDB 替代。从官网下载 MySQL 软件配置包，配置后进行安装。</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>在Debian 10 的默认软件源中并不包含 MySQL 软件包，它已被 MariaDB 替代。从官网下载 MySQL 软件配置包，配置后进行安装。</p>
+</blockquote>
+<!-- more -->
+<h2 id="将-mysql-apt-存储库添加到系统">将 MySQL APT 存储库添加到系统</h2>
+<p>先到MySQL存储库<a href="https://dev.mysql.com/downloads/repo/apt/">下载页面</a>，下载最新的发行包，下边两种下载方式选一个就好。</p>
+<pre><code class="language-bash">wget https://repo.mysql.com//mysql-apt-config_0.8.22-1_all.deb
+</code></pre>
+<pre><code class="language-bash">curl https://repo.mysql.com//mysql-apt-config_0.8.22-1_all.deb
+</code></pre>
+<p>下载完成后，通过以下命令安装</p>
+<pre><code class="language-bash">sudo dpkg -i mysql-apt-config_0.8.13-1_all.deb
+</code></pre>
+<p>你将会看到MySQL配置安装菜单，选择你要安装的版本<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651638337581.PNG" alt="" loading="lazy"><br>
+默认选择了 MySQL 8.0，如果要安装 MySQL 5.7，请选择<code>MySQL Server ＆ Cluster</code>然后选择对应的 MySQL 版本。<br>
+调整完毕选项，光标移动到OK，回车确定。</p>
+<p>使用以下命令更新软件包，并安装MySQL</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install mysql-server
+</code></pre>
+<p>安装过程中将会弹出设置 MySQL root 密码的对话框，设置秘密<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651638513784.PNG" alt="" loading="lazy"></p>
+<p>接下来，会显示一条消息，通知您有关新的 MySQL 8 身份验证的信息。 在选择默认的 MySQL 8 身份验证插件之前，请确保您的应用程序支持它。<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651638595080.PNG" alt="" loading="lazy"><br>
+选择默认第一项，按回车继续。</p>
+<p>安装完成后，MySQL 服务会默认自动运行，可以通过以下命令查看服务运行状态</p>
+<pre><code class="language-bash">sudo systemctl status mysql
+</code></pre>
+<h2 id="连接到mysql服务器">连接到MySQL服务器</h2>
+<p>在终端中可以输入mysql客户端命令来连接mysql服务</p>
+<pre><code class="language-bash">mysql -u root -p
+</code></pre>
+<p>远程链接MySQL时远程连接权限默认没有对外开放，在本机通过上边登入MySQL后，更改 “mysql” 数据库里的 “user” 表里的 “host” 项，从”localhost”改称’%’。</p>
+<pre><code class="language-mysql">use mysql
+update user set host = '%' where user ='root'
+flush privileges;
+</code></pre>
+<p>重启MySQL服务即可完成。</p>
+<ol>
+<li>启动：<code>mysqld start</code></li>
+<li>停止：<code>mysqld stop</code></li>
+<li>重启：<code>mysqld restart</code></li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[搭建Wiki.js的过程]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/da-jian-wikijs-de-guo-cheng/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/da-jian-wikijs-de-guo-cheng/">
+        </link>
+        <updated>2022-05-03T11:55:41.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>Wiki.js官网自称最为强大的和可扩展的开源Wiki软件<br>
+可以采用多种方式编写Wiki，支持常用的markdown、HTML等</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>Wiki.js官网自称最为强大的和可扩展的开源Wiki软件<br>
+可以采用多种方式编写Wiki，支持常用的markdown、HTML等</p>
+</blockquote>
+<!-- more -->
+<h2 id="i️-序">ℹ️ 序</h2>
+<p>为了让我写的文档能够方便的访问和查看，之前用docsify生成的静态页面，放在GitHub pages托管，现在感觉结构太缺乏，不是很能满足现在的需求（心理需求），决定还是切换到Wiki.js了</p>
+<blockquote>
+<p>设备：云服务器1核2G<br>
+系统：Debian10.10<br>
+数据库：MySQL8.0</p>
+</blockquote>
+<h2 id="安装">🆕 安装</h2>
+<blockquote>
+<p>崩溃了，快写完了，保存测试，数据丢了，内容只剩这儿了😭<br>
+2022年5月4日12点48分，重写</p>
+</blockquote>
+<p>进到<a href="https://js.wiki/">官网</a>，右上角点<code>Get Started</code>按钮，选择2.x <code>Setup Instructions</code>，就能看到官方的安装教程，根据系统选择就好。</p>
+<p>Wiki.js支持 MySQL, MariaDB, PostgreSQL, MSSQL、SQLite3数据库<br>
+官方教程用到的是SQLite3，但是我用的MySQL。<br>
+MySQL数据库的配置可以看<a href="../debian1010-zhuang-mysql">这篇</a></p>
+<p>下载官方包，wget，curl都可以。</p>
+<pre><code class="language-bash">wget https://github.com/Requarks/wiki/releases/latest/download/wiki-js.tar.gz
+</code></pre>
+<pre><code class="language-bash">curl https://github.com/Requarks/wiki/releases/latest/download/wiki-js.tar.gz
+</code></pre>
+<p>提取内容</p>
+<pre><code class="language-bash">mkdir wiki
+tar xzf wiki-js.tar.gz -C ./wiki
+cd ./wiki
+</code></pre>
+<p>内置一个配置模板，拿来用就好</p>
+<pre><code class="language-bash">mv config.sample.yml config.yml
+</code></pre>
+<p>更改配置文件：用编辑器打开，我习惯VIM</p>
+<pre><code class="language-bash">vim config.yml
+</code></pre>
+<p>进去只需要注意几个关键配置，其他的不需要在意。<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651640483333.PNG" alt="" loading="lazy"></p>
+<ol>
+<li>port：这是服务器启动的端口</li>
+<li>db：
+<ol>
+<li>type：数据库类型，我用的MySQL，可自行选择，</li>
+<li>host：服务器的地址，本机的话127.0.0.1或者localhost</li>
+<li>port：数据库的端口，MySQL默认3306</li>
+<li>user：数据库用户，没什么注意的话就填root</li>
+<li>pass：数据库用户密码</li>
+<li>db：数据库名，一定要提前创建好，不然启动会出错。
+<blockquote>
+<p>创建数据库的命令<code>CREATE DATABASE 数据库名;</code></p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="启动">⏯ 启动</h2>
+<p>Wiki.js是基于Node.js开发的，启动要用到 Node.js10.12 以上，推荐用最新的LTS版本就好，v16LTS可以启动，但是v18启动会报错。</p>
+<p>Node.js安装、版本管理可以通过NVM工具，NVM的操作可以看<a href="http://zerobiubiu.top/zh/NVM">我的Wiki-NVM</a></p>
+<p>做好上边的配置就可以启动了，启动命令</p>
+<pre><code class="language-bash">node server
+</code></pre>
+<p>出现这个界面就代表成功了，访问你的IP加你设置的端口就可以访问了<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651641842713.PNG" alt="" loading="lazy"></p>
+<p>但是，启动后会占用掉终端，尤其是SSH连接欸，一旦断开服务器就停止运行了，所以要采取办法让他在后台保持运行</p>
+<p>nohup，将程序以忽略挂起信号的方式运行起来</p>
+<pre><code class="language-bash">nohub node server &amp;
+</code></pre>
+<p>服务器就会在后台运行，同时将执行日志输出到nohup.out的文件中，除非另外指定了输出文件</p>
+<pre><code class="language-bash">nohup node server &gt; your_out.file 2&gt;&amp;1 &amp;
+</code></pre>
+<p>当我们不想用的时候，可以杀掉程序进程</p>
+<ol>
+<li>查看进程：<pre><code class="language-bash">ps -ef | grep &quot;node server&quot;
+</code></pre>
+</li>
+<li>杀死进程<pre><code class="language-bash">kill -9 查看进程查到的pid
+</code></pre>
+</li>
+</ol>
+<p>至此，安装结束</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[VS code中开启Cascadia Code字体连字]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/vs-code-zhong-kai-qi-cascadia-code-zi-ti-lian-zi/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/vs-code-zhong-kai-qi-cascadia-code-zi-ti-lian-zi/">
+        </link>
+        <updated>2022-05-02T14:24:48.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>微软推出的一个程序员友好的字体，观感还行。有意思的是可以开启连字</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>微软推出的一个程序员友好的字体，观感还行。有意思的是可以开启连字</p>
+</blockquote>
+<!-- more -->
+<h2 id="安装字体">安装字体</h2>
+<p>去<a href="https://github.com/microsoft/cascadia-code">cascadia-code</a>下载字体，安装下载的发行安装包里的otf或者ttf的字体就可以。</p>
+<h2 id="配置">配置</h2>
+<p>打开vs code的设置，转到 json 配置，有<code>&quot;editor.fontFamily&quot;</code>配置项的话内容改成<code>&quot;Cascadia Code Regular&quot;</code><br>
+这是更改字体，开启连字只需要把<code>&quot;editor.fontLigatures&quot;</code>改成<code>true</code>就行。<br>
+没有这两项配置的话添加上就行。</p>
+<p>改好效果应该就和封面一样了，对很多这种连字符展示更形象，具体有多少种自己试试就知道了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gridea博客开启Gitalk评论]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/gridea-bo-ke-kai-qi-gitalk-ping-lun/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/gridea-bo-ke-kai-qi-gitalk-ping-lun/">
+        </link>
+        <updated>2022-05-01T08:16:11.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>一个博客不能没有评论区，没有评论区就没有灵魂</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>一个博客不能没有评论区，没有评论区就没有灵魂</p>
+</blockquote>
+<!-- more -->
+<h2 id="0️⃣-注册一个新的oauth应用程序">0️⃣ 注册一个新的OAuth应用程序</h2>
+<ol>
+<li>授权需要一个GitHub应用程序，如果你没有，<a href="https://github.com/settings/applications/new">点击这里</a>注册一个新的。</li>
+<li>如果你已经创建过应用程序，<a href="https://github.com/settings/developers">点击这里</a>查看</li>
+</ol>
+<p>找到创建的应用，获取<code>Client ID</code>和<code>Client Secret</code></p>
+<h2 id="1️⃣在gridea中开启评论">1️⃣在Gridea中开启评论</h2>
+<p>找到 远程——评论设置——Gitalk<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651393474626.PNG" alt="" loading="lazy"><br>
+开启显示评论<br>
+<code>Client ID</code>和<code>Client Secret</code>填刚刚创建应用的<br>
+仓库名称填博客的仓库名<br>
+Owner填GitHub的用户名</p>
+<p>每条评论都会在博客仓库的Issues创建一条新的issues</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[开源密码管理器 KeeWeb 的搭建过程]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/kai-yuan-mi-ma-guan-li-qi-keeweb-de-da-jian-guo-cheng/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/kai-yuan-mi-ma-guan-li-qi-keeweb-de-da-jian-guo-cheng/">
+        </link>
+        <updated>2022-05-01T06:36:20.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>这年头上网，什么地方都要注册个账户，账户多了记不住，到处用同一套密码的话又大大降低了安全性，找个顺手的密码管理类软件会方便不少。</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>这年头上网，什么地方都要注册个账户，账户多了记不住，到处用同一套密码的话又大大降低了安全性，找个顺手的密码管理类软件会方便不少。</p>
+</blockquote>
+<!-- more -->
+<blockquote>
+<p>曾经使用安卓用的是 账号本子 也是我第一个密码管理软件，现在换到iOS之后挑选了很多花了12rmb买了XYkey。起初觉得还挺好用，当初选它主要是因为方便从账号本子迁移数据，在Windows端还是免费的。用了有一年，开始觉得还行，由于失误，之前保存的几个密码都没有做备份，密码丢了，锁死了。终于无法忍受，界面不美观，使用功能太少，没有云同步、自动备份，就从新开始寻找合适的管理器。<br>
+也考虑过1password，网评一片好，试用了几次，并没有什么亮点吸引我，价格我也暂时还不能承担。但是还是KeeWeb才是当下最好的选择。<br>
+KeeWeb 是一个开源、跨平台的密码管理工具，具有云同步和插件等功能，界面比较美观。可以在 Windows、Linux 和 Mac OS 上运行，并拥有各自对应的客户端，同时和另一个比较有名的密码管理软件 KeePass 的数据文件格式兼容。<br>
+<a href="%E2%80%8Bapp.keeweb.info/">还有网页版</a><br>
+实际这个程序客户端本身就可以下载后直接使用，数据文件可以同步到 OneDrive，Google Drive 和 Dropbox 三大云服务，这三家的可靠性还是毋庸置疑的。<br>
+我个人就是不太习惯用他提供的服务器，我还是采用了文件的方式放在了iCloud里保存。</p>
+</blockquote>
+<h2 id="使用方法">🆙 使用方法</h2>
+<p>直接去<a href="https://keeweb.info/">官网</a>下载应用安装就可以，不过演示就不在重新安装了，直接用<a href="%E2%80%8Bapp.keeweb.info/">网页版</a>就好了。</p>
+<p>打开网页端，他是英文的，需要调整一下<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651389426550.png" alt="" loading="lazy"></p>
+<p>More——Settings——General——Appearance——Language<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651389532902.PNG" alt="" loading="lazy"></p>
+<p>选择(other languages are available as plugins)跳到Plugins<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651389617445.png" alt="" loading="lazy"></p>
+<p>点Load plugin gallery更新插件<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651389668263.PNG" alt="" loading="lazy"></p>
+<p>找到简体中文点install<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651389717517.PNG" alt="" loading="lazy"></p>
+<p>安装完会在上方显示language-chinese-simplified，找到Switch to this language按钮，单击就自动切换到了简体中文<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651389932035.PNG" alt="" loading="lazy"></p>
+<p>右上角，返回应用。</p>
+<p>点新建，新建一个数据库。<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651390032652.PNG" alt="" loading="lazy"></p>
+<p>然后点左下角这个新建，进到数据库设置<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651390084816.png" alt="" loading="lazy"><br>
+可以给他设置一个密码，这个密码需要牢记，解锁常用，然后主密码下边有个密钥文件，如果你觉得只有密码安全性不够，你可以通过这个生成一个密钥文件保存起来，每次解锁都要有这个文件才可以。<br>
+向下是密码数据库名称，还有默认用户名，这个默认用户名是你每次在数据新建项目存密码的时候的默认用户名，可以更改。<br>
+继续向下是备份，如果你把文件存在本地的话，可以通过备份到云端，如果你文件本身就在云端的话，其实备份就不太重要了。</p>
+<blockquote>
+<p>在网页端备份只支持备份到Dropbox，应用程序可以存在本地或者其他云盘。</p>
+</blockquote>
+<p>启动回收站建议打开，其他的设置保持默认就好，回到最顶端，第一次创建数据库的话点击保存到就会出现如下选项，其他的我就不演示了，这次我选择文件<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651390397459.PNG" alt="" loading="lazy"><br>
+在网页端的话会下载一个文件，保存好，这就是密码数据库了。<br>
+左边的同步按钮在程序内是覆盖保存的数据库文件，不过在网页端，只是对网页的做出修改，每次保存都需要用 保存到 来导出文件。<br>
+右边的按钮是关闭，关闭的是数据库，不是设置页面，退出设置需要右上角的返回，不要点错了。<br>
+其他的设置就不解释了自行研究。</p>
+<p>返回应用后点击上方的加号，会出现三个选项，不过一般只会用到前两个，第一个是新建密码，第二个用来创建分组管理，第三个是用来创建模板的。<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651390624719.PNG" alt="" loading="lazy"></p>
+<p>点击第一个选项，右侧会变成这个页面，title就是钥匙名称，内容根据情况填就好。<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651390724878.PNG" alt="" loading="lazy"></p>
+<p>写好数据之后，记得去保存，应用程序的话建议去 设置——功能 找到自动保存，没设置自动保存的记得点同步。网页端不能自动保存，需要 保存到 来存储，存好之后点关闭就可以了。</p>
+<p>再次打开的时候，出现如下的界面，输入对应数据库的密码打开，有设置密钥文件的记得选好密钥文件，不过网页端重启后是没有记忆的，关闭了网页需要点 打开 来找到数据库。<br>
+<img src="https://zerobiubiu.github.io/blogs//post-images/1651390955049.png" alt="" loading="lazy"></p>
+<p>云同步，我用的是iCloud，只需要将保存的数据库放进iCloud，每次同步的时候都会覆盖掉，其他的原理差不多。</p>
+<p>IOS端，我用的<a href="https://apps.apple.com/us/app/strongbox-keepass-pwsafe/id897283731">strongbox</a>，有免费版，pro支持免费试用90天，月费19，年费50，终身388。<br>
+它支持从iCloud里获取数据，并且也是覆盖写入，但是要注意，iCloud的同步是有延迟的，和电脑端公用一个文件的话要注意延迟，不要文件冲突了。</p>
+<p>安卓端，由于没有iCloud云同步，文件的同步就很麻烦了，可是试试其他同步方式。<br>
+<a href="https://github.com/AriaLyy/KeepassA">KeePassA</a><br>
+<a href="https://github.com/PhilippC/keepass2android">Keepass2Android</a><br>
+用的是keepass的数据库，找自己喜欢的就可以</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[获取Github的Token]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/huo-qu-github-de-token/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/huo-qu-github-de-token/">
+        </link>
+        <updated>2022-05-01T05:11:23.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>获取GitHub的Token的教程</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>获取GitHub的Token的教程</p>
+</blockquote>
+<!-- more -->
+<p>进入Github的设置</p>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs//post-images/1651283348612.PNG" alt="" loading="lazy"></figure>
+<p>划到下边左侧选择<code>Developer setting</code></p>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs//post-images/1651283426509.PNG" alt="" loading="lazy"></figure>
+<p>进入二级页面，选择<code>Personal access tokens</code><br>
+点<code>Generate new token</code>创建一个新的<code>Token</code><br>
+接着会让你输入密码验证自己，进入创建页面</p>
+<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.github.io/blogs//post-images/1651283823527.png" alt="" loading="lazy"></figure>
+<p><code>Note</code>是你这个<code>Token</code>的备注，随自己写，一般是记录这个<code>Token</code>的作用<br>
+<code>Expiration</code>是这个<code>Token</code>的可用期限，官方是推荐设置一个时间期限，不过我一般都是选择无期限，毕竟嫌麻烦。<br>
+<code>Select scopes</code>是权限控制，权限大家自己判断。</p>
+<p>划到底点<code>Generate token</code>创建。</p>
+<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.github.io/blogs//post-images/1651284304755.PNG" alt="" loading="lazy"></figure>
+<p><code>Token</code>只会在创建完毕出现，<mark>务必复制保存</mark>，不然你只能重新创建了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Typora配合PicGo上传图床]]></title>
+        <id>https://zerobiubiu.github.io/blogs/post/typora-pei-he-picgo-shang-chuan-tu-chuang/</id>
+        <link href="https://zerobiubiu.github.io/blogs/post/typora-pei-he-picgo-shang-chuan-tu-chuang/">
+        </link>
+        <updated>2022-04-30T06:09:22.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>Typora是一款跨平台的Markdown编辑器软件，常常用它来写笔记或者博客。当使用Typora做笔记时，常常需要上传截图，存在本地不方便传输，所以需要一个图床来存图片提供访问链接。Typora内置使用PicGo</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>Typora是一款跨平台的Markdown编辑器软件，常常用它来写笔记或者博客。当使用Typora做笔记时，常常需要上传截图，存在本地不方便传输，所以需要一个图床来存图片提供访问链接。Typora内置使用PicGo</p>
+</blockquote>
+<!-- more -->
+<h2 id="0️⃣-配置picgo">0️⃣ 配置PicGo</h2>
+<p><a href="https://zerobiubiu.github.io/blogs/post/yong-github-da-jian-tu-chuang/">PicGo配合Github做图床的教程</a></p>
+<h2 id="1️⃣-配置typora">1️⃣ 配置Typora</h2>
+<p>安装<a href="https://www.typora.net/">Typora</a></p>
+<p>打开Typora——文件——偏好设置——图像</p>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs//post-images/1651384263741.PNG" alt="" loading="lazy"></figure>
+<p>在上传服务设定处，上传服务选择PicGo(app)<br>
+PicGo路径不能只能识别的话手动设定一下位置就可以</p>
+<p>设置好后点击<code>验证上传选项</code></p>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs//post-images/1651384447422.PNG" alt="" loading="lazy"></figure>
+<p>成功就代表配置成功了。</p>
+<h2 id="2️⃣使用">2️⃣使用</h2>
+<p>在向上看，插入图片时...  改成上传图片，即可在导入图片时自动上传并替换markdown文档中的路径。</p>
+<p>我更倾向于复制到指定目录，需要上传时对图片右键，点上传图片，他就会自动上传，不会没必要的图片也上传了。</p>
+<p>打开一个未上传图像的文档并不会直接上传，即便插入图片时上传图片也不会自动上传，还是需要手动去点上传，只有在插入新的图片到文档时才会上传图片。</p>
+]]></content>
+    </entry>
+</feed>

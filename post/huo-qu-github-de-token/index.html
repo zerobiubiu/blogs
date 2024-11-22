@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>获取Github的Token | Zerobiubiu</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zerobiubiu.github.io/blogs//favicon.ico?v=1732259136648">
+<link rel="stylesheet" href="https://zerobiubiu.github.io/blogs//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYETLQP793"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QYETLQP793');
+</script>
+
+
+    <meta name="description" content="
+获取GitHub的Token的教程
+
+
+进入Github的设置
+
+划到下边左侧选择Developer setting
+
+进入二级页面，选择Personal access tokens
+点Generate new token创建一个新的To..." />
+    <meta name="keywords" content="Token,GitHub" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zerobiubiu.github.io/blogs/">
+        <img src="https://zerobiubiu.github.io/blogs//images/avatar.png?v=1732259136648" class="site-logo">
+        <h1 class="site-title">Zerobiubiu</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs" class="site-nav">
+            🔛 首页
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/archives" class="site-nav">
+            📃 文档
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/tags" class="site-nav">
+            🗃️ 标签
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/you-lian" class="site-nav">
+            🤝 友情链接
+          </a>
+        
+      
+        
+          <a href="https://zerobiubiu.github.io/blogs/post/about" class="site-nav">
+            🔚 关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zerobiubiu" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      这里是Zerobiubiu的博客
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://zerobiubiu.github.io/blogs//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">获取Github的Token</h2>
+            <div class="post-date">2022-05-01</div>
+            
+              <div class="feature-container" style="background-image: url('https://zerobiubiu.github.io/blogs//post-images/huo-qu-github-de-token.PNG')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>获取GitHub的Token的教程</p>
+</blockquote>
+<!-- more -->
+<p>进入Github的设置</p>
+<figure data-type="image" tabindex="1"><img src="https://zerobiubiu.github.io/blogs//post-images/1651283348612.PNG" alt="" loading="lazy"></figure>
+<p>划到下边左侧选择<code>Developer setting</code></p>
+<figure data-type="image" tabindex="2"><img src="https://zerobiubiu.github.io/blogs//post-images/1651283426509.PNG" alt="" loading="lazy"></figure>
+<p>进入二级页面，选择<code>Personal access tokens</code><br>
+点<code>Generate new token</code>创建一个新的<code>Token</code><br>
+接着会让你输入密码验证自己，进入创建页面</p>
+<figure data-type="image" tabindex="3"><img src="https://zerobiubiu.github.io/blogs//post-images/1651283823527.png" alt="" loading="lazy"></figure>
+<p><code>Note</code>是你这个<code>Token</code>的备注，随自己写，一般是记录这个<code>Token</code>的作用<br>
+<code>Expiration</code>是这个<code>Token</code>的可用期限，官方是推荐设置一个时间期限，不过我一般都是选择无期限，毕竟嫌麻烦。<br>
+<code>Select scopes</code>是权限控制，权限大家自己判断。</p>
+<p>划到底点<code>Generate token</code>创建。</p>
+<figure data-type="image" tabindex="4"><img src="https://zerobiubiu.github.io/blogs//post-images/1651284304755.PNG" alt="" loading="lazy"></figure>
+<p><code>Token</code>只会在创建完毕出现，<mark>务必复制保存</mark>，不然你只能重新创建了。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/token/" class="tag">
+                    Token
+                  </a>
+                
+                  <a href="https://zerobiubiu.github.io/blogs/tag/github/" class="tag">
+                    GitHub
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zerobiubiu.github.io/blogs/post/typora-pei-he-picgo-shang-chuan-tu-chuang/">
+                  <h3 class="post-title">
+                    Typora配合PicGo上传图床
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '9e77d87054021bb4dc89',
+        clientSecret: '372ad4757a96a2e749ec8ec58aff1c12d38142ec',
+        repo: 'blogs',
+        owner: 'zerobiubiu',
+        admin: ['zerobiubiu'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
